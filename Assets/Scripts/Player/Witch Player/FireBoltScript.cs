@@ -8,12 +8,11 @@ public class FireBoltScript : MonoBehaviour
     public UnityEvent<EnemyController> hitATarget;
     const float yLevel = 1;
     
-    public void SetDirection(Vector2 direction, float speed)
+    public void SetDirection(Vector3 direction, float speed)
     {
         transform.position = new Vector3(transform.position.x, yLevel, transform.position.z);
-        Vector2 vect2D = direction * speed;
-        rb.linearVelocity = new Vector3(vect2D.x, 0, vect2D.y);
-        if(rb.linearVelocity == Vector3.zero)
+        rb.linearVelocity = direction * speed;
+        if (rb.linearVelocity == Vector3.zero)
             Destroy(gameObject);
     }
 

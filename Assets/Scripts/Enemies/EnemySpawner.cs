@@ -7,8 +7,13 @@ public class EnemySpawner : MonoBehaviour
     [Range(0, 360)][SerializeField] float startingAngle;
     [Range(0, 360)][SerializeField] float widthAngle;
     [SerializeField] float radius;
-    [SerializeField] float minRadius;
-    
+    float minRadius = 2;
+    [Header("SpawnLogic")]
+    [SerializeField] float spawnCooldown;
+    [SerializeField] float spawnTimingRandomness;
+    [SerializeField] int minimumEnemiesToSpawn;
+    [SerializeField] int maximumEnemiesToSpawn;
+    float spawnTime = 0;
     [Header("Spawnable Enemies")]
     [SerializeField] GameObject[] enemyArr;
     [Header("Refrences")]
@@ -25,11 +30,16 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-            SpawnEnemies();
+        if (Time.time > spawnTime)
+        {
+            int enemyAmount = Random.Range(minimumEnemiesToSpawn, maximumEnemiesToSpawn + 1);
+            for (int i = 0; i < enemyAmount; i++)
+                SpawnEnemy();
+            spawnTime = Time.time + spawnCooldown + Random.Range(0, spawnTimingRandomness);
+        }
     }
 
-    public void SpawnEnemies()
+    public void SpawnEnemy()
     {
         float angle = startingAngle - Random.Range(0, widthAngle);
         float distance = Random.Range(minRadius, radius);

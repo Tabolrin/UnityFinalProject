@@ -15,19 +15,19 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "MousePosition",
-                    "type": "Value",
-                    "id": "c93d49ca-d1ac-43a3-9a80-becdd010956b",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Fire",
                     "type": "Button",
                     "id": "1d134eb4-41c3-4fc6-a0ba-1af332dc5c3f",
                     "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Look",
+                    "type": "PassThrough",
+                    "id": "adbcc7d1-3dcc-4e03-9e11-9a9df345a5d8",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -223,12 +223,12 @@
                 },
                 {
                     "name": "",
-                    "id": "404b4697-a11e-4c9a-95ed-72aba5033cb7",
-                    "path": "<Mouse>/position",
+                    "id": "32b712b8-530c-450e-a3ce-8a433314f98b",
+                    "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "MousePosition",
+                    "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
