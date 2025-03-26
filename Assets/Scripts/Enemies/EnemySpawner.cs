@@ -18,6 +18,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] GameObject[] enemyArr;
     [Header("Refrences")]
     [SerializeField] WitchPlayerController player;
+    [SerializeField] ParticleSystem particles;
 
     void OnDrawGizmosSelected()
     {
@@ -32,6 +33,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (Time.time > spawnTime)
         {
+            particles.Play();
             int enemyAmount = Random.Range(minimumEnemiesToSpawn, maximumEnemiesToSpawn + 1);
             for (int i = 0; i < enemyAmount; i++)
                 SpawnEnemy();
