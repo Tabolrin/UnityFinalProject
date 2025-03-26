@@ -48,9 +48,8 @@ MonoBehaviour:
   startingAngle: 0
   widthAngle: 360
   radius: 10
-  minRadius: 2
-  spawnCooldown: 2
-  spawnTimingRandomness: 1
+  spawnCooldown: 3
+  spawnTimingRandomness: 2
   minimumEnemiesToSpawn: 1
   maximumEnemiesToSpawn: 3
   enemyArr:
