@@ -14,7 +14,6 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log($"Calling GoToTarget({player.transform.position})");
         goToPoint.GoToTarget(player.transform.position);
     }
 }

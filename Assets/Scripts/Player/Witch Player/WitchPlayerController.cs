@@ -9,11 +9,13 @@ public class WitchPlayerController : MonoBehaviour
     [SerializeField] float bulletSpeed;
     [SerializeField] float animationDampenTime;
     
-    [Header("Refrences")]
+    [Header("Component Refrences")]
     [SerializeField] Rigidbody rb;
-    [SerializeField] Camera mainCamera;
-    [SerializeField] GameObject PlayerModel;
     [SerializeField] Animator anim;
+    [SerializeField] PlayerHealth hp;
+    [Header("Other Object Refrences")]
+    [SerializeField] GameObject PlayerModel;
+    [SerializeField] Camera mainCamera;
     [SerializeField] GameObject firebolt;
     [SerializeField] GameObject firePoint;
     //Animator Parameters
@@ -26,9 +28,9 @@ public class WitchPlayerController : MonoBehaviour
     Vector2 lookDirection = Vector2.zero;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
-        
+        SpikeTrap.onSpikeTouched += TakeDamage;
     }
 
     // Update is called once per frame
@@ -79,6 +81,11 @@ public class WitchPlayerController : MonoBehaviour
         anim.SetFloat(speedX, alteredMoveDirection.x, animationDampenTime, Time.deltaTime);
         anim.SetFloat(speedY, alteredMoveDirection.y, animationDampenTime, Time.deltaTime);
 
+    }
+
+    private void TakeDamage(int damage)
+    {
+        hp.TakeDamage(damage);
     }
 
     //New Input Systems
