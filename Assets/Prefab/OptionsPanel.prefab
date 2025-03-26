@@ -33,7 +33,7 @@ RectTransform:
   m_Father: {fileID: 5975751221836767877}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -85,6 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6080922651358867470}
   - component: {fileID: 7811947993659787129}
+  - component: {fileID: 34304325228962129}
   m_Layer: 5
   m_Name: MusicSlider
   m_TagString: Untagged
@@ -158,13 +159,39 @@ MonoBehaviour:
   m_FillRect: {fileID: 5033305080957939375}
   m_HandleRect: {fileID: 7265073406596086372}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -60
+  m_MaxValue: 2
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 2
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 34304325228962129}
+        m_TargetAssemblyTypeName: VolumeSettings, Assembly-CSharp
+        m_MethodName: SetMusicVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &34304325228962129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2879148172157366162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e902071f0faefe945912a061f171965c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioMixer: {fileID: 24100000, guid: 0f4a8362ed37d2b499a8c17cc9896a71, type: 2}
+  _volumeSlider: {fileID: 7811947993659787129}
 --- !u!1 &2930680840773858687
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,7 +225,7 @@ RectTransform:
   m_Father: {fileID: 5339904897734264507}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -250,6 +277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7864914128971500026}
   - component: {fileID: 3047725930236062465}
+  - component: {fileID: 4889107385847699141}
   m_Layer: 5
   m_Name: SFXSlider
   m_TagString: Untagged
@@ -323,13 +351,39 @@ MonoBehaviour:
   m_FillRect: {fileID: 1368002298701792571}
   m_HandleRect: {fileID: 8756474301190174691}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -60
+  m_MaxValue: 2
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 2
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4889107385847699141}
+        m_TargetAssemblyTypeName: VolumeSettings, Assembly-CSharp
+        m_MethodName: SetSfxVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4889107385847699141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3106861000545887436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e902071f0faefe945912a061f171965c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioMixer: {fileID: 24100000, guid: 0f4a8362ed37d2b499a8c17cc9896a71, type: 2}
+  _volumeSlider: {fileID: 3047725930236062465}
 --- !u!1 &3310559851238741324
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,7 +401,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8761134733062353951
 RectTransform:
   m_ObjectHideFlags: 0
@@ -837,8 +891,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 709267805478318455}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -912,8 +966,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1905283665616497526}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

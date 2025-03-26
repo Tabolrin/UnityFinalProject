@@ -7,17 +7,17 @@ public class AudioManager : MonoBehaviour
     public enum SoundClips 
     { 
         //Music
-        ColorSortBGMusic,
-        EmotionMatchBGMusic,
-        MainMenuBGMusic,
-        KindergartenBGMusic,
+        MainMenuBgMusic,
+        WinBgMusic,
+        LoseBgMusic,
+        MazeBgMusic,
+        BossRoomBgMusic,
         //Sfx
-        ColorMatchSuccessSound,
-        BackToDefaultPositionSound,
-        EmotionMatchSuccessSound,
-        LineDisappearSound,
-        //AI Voicelines
-        AIVoiceLine,
+        PlayerStepsSfx,
+        PlayerAttackSfx,
+        RangedEnemyAttackSfx,
+        MeleeEnemyAttackSfx,
+        PowerUpCollectedSfx
     };
 
     [SerializeField] private GameObject Music;
@@ -50,69 +50,39 @@ public class AudioManager : MonoBehaviour
         //_audioSource.PlayOneShot(AIVoiceLine);
     }
 
-    public void StopBackgroundMusic()
+    public void StopBackgroundMusic(bool ShouldPlayMusic)
     {
-        _musicAudioSource.Stop();
+        if (ShouldPlayMusic)
+            _musicAudioSource.Play();
+        else
+            _musicAudioSource.Stop();
     }
 
     public void PlaySound(SoundClips actionSound)
     {
         switch (actionSound)
         {
-            //---------Color Sort--------
-            case SoundClips.ColorSortBGMusic:
+            //---------Main Menu--------
+            case SoundClips.MainMenuBgMusic:
             {
-                //_musicAudioSource.PlayOneShot(AudioClipsContainer.ColorSortBGMusic);
-                _musicAudioSource.clip = AudioClipsContainer.ColorSortBGMusic;
+                _musicAudioSource.clip = AudioClipsContainer.MainMenuBgMusic;
                 _musicAudioSource.Play();
                 break;
             }
             
-            case SoundClips.ColorMatchSuccessSound:
+            //---------Maze Levels--------
+            case SoundClips.MazeBgMusic:
             {
-                _sfxAudioSource.PlayOneShot(AudioClipsContainer.ColorMatchSuccessSfx);
-                break;
-            }
-
-            case SoundClips.BackToDefaultPositionSound:
-            {
-                _sfxAudioSource.PlayOneShot(AudioClipsContainer.ColorMatchLocationResetSfx);
+                _sfxAudioSource.PlayOneShot(AudioClipsContainer.MazeBgMusic);
                 break;
             }
             
             //---------Emotion Match--------
-            case SoundClips.EmotionMatchBGMusic:
+            case SoundClips.LoseBgMusic:
             {
-                _musicAudioSource.PlayOneShot(AudioClipsContainer.EmotionMatchBGMusic);
+                _musicAudioSource.PlayOneShot(AudioClipsContainer.LoseBgMusic);
                 break;
             }
-            
-            case SoundClips.EmotionMatchSuccessSound:
-            {
-                _sfxAudioSource.PlayOneShot(AudioClipsContainer.EmotionMatchSuccessSfx);
-                break;
-            }
-            
-            case SoundClips.LineDisappearSound:
-            {
-                _sfxAudioSource.PlayOneShot(AudioClipsContainer.LineDisappearSfx);
-                break;
-            }
-            
-            //---------Main Menu--------
-            case SoundClips.MainMenuBGMusic:
-            {
-                _musicAudioSource.PlayOneShot(AudioClipsContainer.MainMenuBGMusic);
-                break;
-            }
-            
-            //---------Kindergarten--------
-            case SoundClips.KindergartenBGMusic:
-            {
-                _musicAudioSource.PlayOneShot(AudioClipsContainer.KindergartenBGMusic);
-                break;
-            }
-            
         }
     }
 }
