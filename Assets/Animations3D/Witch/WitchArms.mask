@@ -70,7 +70,7 @@ AvatarMask:
   - m_Path: Rig/root/hips/spine/chest/head/Mage_Hat
     m_Weight: 0
   - m_Path: Rig/root/hips/spine/chest/Mage_Cape
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Rig/root/hips/spine/chest/upperarm.l
     m_Weight: 1
   - m_Path: Rig/root/hips/spine/chest/upperarm.l/lowerarm.l

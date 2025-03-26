@@ -6,6 +6,7 @@ public class WitchPlayerController : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] float speed;
+    [SerializeField] float bulletSpeed;
     [SerializeField] float animationDampenTime;
     
     [Header("Refrences")]
@@ -13,6 +14,12 @@ public class WitchPlayerController : MonoBehaviour
     [SerializeField] Camera mainCamera;
     [SerializeField] GameObject PlayerModel;
     [SerializeField] Animator anim;
+    [SerializeField] GameObject firebolt;
+    [SerializeField] GameObject firePoint;
+    //Animator Parameters
+    readonly string speedX = "SpeedX";
+    readonly string speedY = "SpeedY";
+    readonly string shoot = "Shoot";
 
     //Fields
     Vector2 moveDirection = Vector2.zero;
@@ -53,8 +60,8 @@ public class WitchPlayerController : MonoBehaviour
     }
     private void ChangeAnimationSpeed()
     {
-        anim.SetFloat("SpeedX", moveDirection.x, animationDampenTime, Time.deltaTime);
-        anim.SetFloat("SpeedY", moveDirection.y, animationDampenTime, Time.deltaTime);
+        anim.SetFloat(speedX, moveDirection.x, animationDampenTime, Time.deltaTime);
+        anim.SetFloat(speedY, moveDirection.y, animationDampenTime, Time.deltaTime);
 
     }
 
@@ -66,6 +73,12 @@ public class WitchPlayerController : MonoBehaviour
     private void OnMousePosition(InputValue value)
     {
         lookDirection = CalculateCorrectRotation(value.Get<Vector2>());
+    }
+    private void OnFire()
+    {
+        anim.SetTrigger(shoot);
+        FireBoltScript newFirebolt = Instantiate(firebolt, firePoint.transform.position, Quaternion.identity).GetComponent<FireBoltScript>();
+        newFirebolt.SetDirection(lookDirection, bulletSpeed);
     }
         
 }
