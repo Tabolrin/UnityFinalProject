@@ -6,6 +6,7 @@ public class WitchPlayerController : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] float speed;
+    [SerializeField] float bulletSpeed;
     [SerializeField] float animationDampenTime;
     
     [Header("Refrences")]
@@ -13,6 +14,12 @@ public class WitchPlayerController : MonoBehaviour
     [SerializeField] Camera mainCamera;
     [SerializeField] GameObject PlayerModel;
     [SerializeField] Animator anim;
+    [SerializeField] GameObject firebolt;
+    [SerializeField] GameObject firePoint;
+    //Animator Parameters
+    readonly string speedX = "SpeedX";
+    readonly string speedY = "SpeedY";
+    readonly string shoot = "Shoot";
 
     //Fields
     Vector2 moveDirection = Vector2.zero;
@@ -53,8 +60,24 @@ public class WitchPlayerController : MonoBehaviour
     }
     private void ChangeAnimationSpeed()
     {
-        anim.SetFloat("SpeedX", moveDirection.x, animationDampenTime, Time.deltaTime);
-        anim.SetFloat("SpeedY", moveDirection.y, animationDampenTime, Time.deltaTime);
+        //calculating the angle between the look direction and the world axis
+        float lookAngle = Mathf.Atan(lookDirection.y / lookDirection.x);
+        lookAngle = Mathf.Rad2Deg * lookAngle;
+        if(lookDirection.x < 0 && lookDirection.y >0)
+        {
+            lookAngle = lookAngle + 180;
+        }
+        else if(lookDirection.x < 0 && lookDirection.y < 0)
+        {
+            lookAngle = lookAngle - 180;
+        }
+        lookAngle = -(lookAngle-90); //Additional calculations to make it match with the y axis of the player's up = world up
+
+        //rotating the move direction to be relative to the facing direction and then sending it to the animator
+        Vector2 alteredMoveDirection = Quaternion.AngleAxis(lookAngle, Vector3.forward) * moveDirection;
+
+        anim.SetFloat(speedX, alteredMoveDirection.x, animationDampenTime, Time.deltaTime);
+        anim.SetFloat(speedY, alteredMoveDirection.y, animationDampenTime, Time.deltaTime);
 
     }
 
@@ -66,6 +89,12 @@ public class WitchPlayerController : MonoBehaviour
     private void OnMousePosition(InputValue value)
     {
         lookDirection = CalculateCorrectRotation(value.Get<Vector2>());
+    }
+    private void OnFire()
+    {
+        anim.SetTrigger(shoot);
+        FireBoltScript newFirebolt = Instantiate(firebolt, firePoint.transform.position, Quaternion.identity).GetComponent<FireBoltScript>();
+        newFirebolt.SetDirection(lookDirection, bulletSpeed);
     }
         
 }

@@ -18,5 +18,6 @@ public class GoToPoint : MonoBehaviour
         newTarget.y = playerYPos;
 
         agent.destination = newTarget;
+        Debug.Log($"destination set to {newTarget}");
     }
 }
