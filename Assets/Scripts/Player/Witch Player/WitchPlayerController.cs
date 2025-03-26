@@ -7,8 +7,10 @@ public class WitchPlayerController : MonoBehaviour
     [Header("Settings")]
     [SerializeField] float speed;
     [SerializeField] float bulletSpeed;
+    [SerializeField] int fireboltDamage;
+    [SerializeField] float knockbackPower;
     [SerializeField] float animationDampenTime;
-    
+        
     [Header("Component Refrences")]
     [SerializeField] Rigidbody rb;
     [SerializeField] Animator anim;
@@ -18,10 +20,11 @@ public class WitchPlayerController : MonoBehaviour
     [SerializeField] Camera mainCamera;
     [SerializeField] GameObject firebolt;
     [SerializeField] GameObject firePoint;
-    //Animator Parameters
+    //string Parameters
     readonly string speedX = "SpeedX";
     readonly string speedY = "SpeedY";
     readonly string shoot = "Shoot";
+    readonly string enemyTag = "Enemy";
 
     //Fields
     Vector2 moveDirection = Vector2.zero;
@@ -87,6 +90,23 @@ public class WitchPlayerController : MonoBehaviour
     {
         hp.TakeDamage(damage);
     }
+    private void DealDamage(EnemyController enemy)
+    {
+        enemy.TakeDamage(fireboltDamage);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == enemyTag)
+        {
+            EnemyController enemy = collision.gameObject.GetComponent<EnemyController>();
+            TakeDamage(enemy.ContactDamage);
+
+            //calculate knockback
+            Vector3 knockbackVect = (enemy.transform.position - transform.position).normalized * knockbackPower;
+            StartCoroutine(enemy.Knockback(knockbackVect));
+        }
+    }
 
     //New Input Systems
     private void OnMove(InputValue value)
@@ -102,6 +122,7 @@ public class WitchPlayerController : MonoBehaviour
         anim.SetTrigger(shoot);
         FireBoltScript newFirebolt = Instantiate(firebolt, firePoint.transform.position, Quaternion.identity).GetComponent<FireBoltScript>();
         newFirebolt.SetDirection(lookDirection, bulletSpeed);
+        newFirebolt.hitATarget.AddListener(DealDamage);
     }
         
 }

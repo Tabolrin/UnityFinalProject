@@ -1,9 +1,11 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FireBoltScript : MonoBehaviour
 {
     [SerializeField] Rigidbody rb;
+    public UnityEvent<EnemyController> hitATarget;
     static readonly float yLevel = 1;
     
     public void SetDirection(Vector2 direction, float speed)
@@ -17,6 +19,10 @@ public class FireBoltScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        EnemyController enemy;
+        enemy = other.GetComponent<EnemyController>();
+        if(enemy != null)
+            hitATarget.Invoke(enemy);
         Destroy(gameObject);
     }
 }
