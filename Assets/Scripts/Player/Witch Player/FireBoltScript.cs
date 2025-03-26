@@ -6,7 +6,7 @@ public class FireBoltScript : MonoBehaviour
 {
     [SerializeField] Rigidbody rb;
     public UnityEvent<EnemyController> hitATarget;
-    static readonly float yLevel = 1;
+    const float yLevel = 1;
     
     public void SetDirection(Vector2 direction, float speed)
     {

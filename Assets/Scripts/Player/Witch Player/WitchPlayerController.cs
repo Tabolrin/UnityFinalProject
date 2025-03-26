@@ -8,7 +8,7 @@ public class WitchPlayerController : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float bulletSpeed;
     [SerializeField] int fireboltDamage;
-    [SerializeField] float knockbackPower;
+    [SerializeField] public readonly float knockbackPower;
     [SerializeField] float animationDampenTime;
         
     [Header("Component Refrences")]
@@ -21,10 +21,10 @@ public class WitchPlayerController : MonoBehaviour
     [SerializeField] GameObject firebolt;
     [SerializeField] GameObject firePoint;
     //string Parameters
-    readonly string speedX = "SpeedX";
-    readonly string speedY = "SpeedY";
-    readonly string shoot = "Shoot";
-    readonly string enemyTag = "Enemy";
+    const string speedX = "SpeedX";
+    const string speedY = "SpeedY";
+    const string shoot = "Shoot";
+    const string enemyTag = "Enemy";
 
     //Fields
     Vector2 moveDirection = Vector2.zero;
