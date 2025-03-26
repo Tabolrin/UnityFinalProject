@@ -8,11 +8,12 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField]  HealthParameters healthParameters;
 
-    public int health = 100;
+    public int health;
     public static UnityAction<int> OnHealthUpdated;
 
     private void Awake()
     {
+        health = healthParameters.MaxHealth;
         HealthOrb.onHealthOrbTouched += AddHealth;
         SpikeTrap.onSpikeTouched += TakeDamage;
     }
@@ -33,12 +34,13 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int amount)
     {
         health = math.max(health - amount, healthParameters.MinHealth);
-        if (health == healthParameters.MinHealth) { PlayerDied(); }
+        if (health <= healthParameters.MinHealth) { PlayerDied(); }
         OnHealthUpdated.Invoke(health);
     }
 
     private void PlayerDied()
     {
+        health = healthParameters.MaxHealth;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
