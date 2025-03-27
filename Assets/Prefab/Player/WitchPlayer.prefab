@@ -52,7 +52,7 @@ MonoBehaviour:
   speed: 20
   bulletSpeed: 30
   fireboltDamage: 1
-  cameraSpeed: 1
+  cameraSpeed: 0.5
   animationDampenTime: 0
   rb: {fileID: 1656400206107516378}
   anim: {fileID: 5387801567641019374}
@@ -215,10 +215,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
-  m_Height: 2.1767025
+  m_Radius: 0.3719864
+  m_Height: 2.2939916
   m_Direction: 1
-  m_Center: {x: 0, y: 1.1064689, z: 0}
+  m_Center: {x: 0, y: 1.1651134, z: 0}
 --- !u!1 &7723617800311081738
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,13 +277,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7821370787209031583}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.101293035, y: -0, z: -0, w: 0.99485666}
-  m_LocalPosition: {x: 0, y: 3.934, z: -6.1289997}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
+  m_LocalPosition: {x: 0, y: 9.41, z: -8.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3070000437491897948}
-  m_LocalEulerAnglesHint: {x: 11.627, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!20 &1060826606553488562
 Camera:
   m_ObjectHideFlags: 0
@@ -411,7 +411,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8291222551152759888}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -420,7 +420,7 @@ Transform:
   - {fileID: 6692578533198943517}
   - {fileID: 1288723430132003191}
   m_Father: {fileID: 8975627442689473262}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1001 &1995030120830180991
 PrefabInstance:
   m_ObjectHideFlags: 0

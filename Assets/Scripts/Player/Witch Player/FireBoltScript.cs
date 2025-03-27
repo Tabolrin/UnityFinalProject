@@ -4,14 +4,15 @@ using UnityEngine.Events;
 
 public class FireBoltScript : MonoBehaviour
 {
-    [SerializeField] Rigidbody rb;
+    [SerializeField] private Rigidbody rb;
     public UnityEvent<EnemyController> hitATarget;
-    const float yLevel = 1;
+    private const float Y_LEVEL = 1;
     
     public void SetDirection(Vector3 direction, float speed)
     {
-        transform.position = new Vector3(transform.position.x, yLevel, transform.position.z);
-        rb.linearVelocity = direction * speed;
+        transform.position = new Vector3(transform.position.x, Y_LEVEL, transform.position.z);
+        rb.linearVelocity = direction * speed * Time.deltaTime;
+        
         if (rb.linearVelocity == Vector3.zero)
             Destroy(gameObject);
     }

@@ -21,7 +21,7 @@ public class PlayerData
 }
 
 
-public class SaveManager : MonoBehaviour
+public class SaveLoadManager : MonoBehaviour
 {
     private bool HasActiveSave = false;
     

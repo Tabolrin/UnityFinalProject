@@ -5093,7 +5093,7 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 1, g: 0.60602087, b: 0, a: 1}
-  m_Intensity: 50
+  m_Intensity: 70
   m_Range: 2
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
