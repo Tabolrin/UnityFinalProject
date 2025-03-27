@@ -64,6 +64,7 @@ public class EnemyController : MonoBehaviour
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         yield return null;
+        yield return null;
         rb.useGravity = false;
         rb.isKinematic = true;
         agent.Warp(transform.position);

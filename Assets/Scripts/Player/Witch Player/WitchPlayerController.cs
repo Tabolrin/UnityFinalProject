@@ -35,6 +35,7 @@ public class WitchPlayerController : MonoBehaviour
 
     void Awake()
     {
+        Application.targetFrameRate = 10;
         SpikeTrap.onSpikeTouched += TakeDamage;
     }
 
@@ -57,16 +58,6 @@ public class WitchPlayerController : MonoBehaviour
         //Vector3 look = new Vector3(lookDirection.x, 0, lookDirection.y);
         PlayerModel.transform.rotation = Quaternion.Euler(new Vector3(0, lookAngle, 0));
     }
-    //private Vector2 CalculateCorrectRotation(Vector2 screenPosition)
-    //{
-    //    Ray ray = mainCamera.ScreenPointToRay(screenPosition);
-    //    RaycastHit hit;
-    //    Physics.Raycast(ray, out hit);
-    //    Vector3 worldPos = hit.point;
-
-    //    Vector2 direction = new Vector2(worldPos.x - transform.position.x, worldPos.z - transform.position.z);
-    //    return direction.normalized;
-    //}
     private void ChangeAnimationSpeed()
     {
         anim.SetFloat(speedX, moveDirection.x, animationDampenTime, Time.deltaTime);
