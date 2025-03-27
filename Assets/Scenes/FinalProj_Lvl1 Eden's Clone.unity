@@ -2956,6 +2956,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 97724974}
     m_Modifications:
+    - target: {fileID: 829247101253514177, guid: 4169c2d1728225f49b14a9279761d266, type: 3}
+      propertyPath: m_Carve
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3476985321047651965, guid: 4169c2d1728225f49b14a9279761d266, type: 3}
       propertyPath: m_Name
       value: Chest_gold
@@ -3918,7 +3922,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6023501656877625134, guid: feb3636900ab293468cf519f48c7b089, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.4
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 6023501656877625134, guid: feb3636900ab293468cf519f48c7b089, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4313,6 +4317,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 97724974}
     m_Modifications:
+    - target: {fileID: 829247101253514177, guid: 4169c2d1728225f49b14a9279761d266, type: 3}
+      propertyPath: m_Carve
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3476985321047651965, guid: 4169c2d1728225f49b14a9279761d266, type: 3}
       propertyPath: m_Name
       value: Chest_gold

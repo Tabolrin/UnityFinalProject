@@ -21,8 +21,7 @@ public class FireBoltScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy") 
             || other.gameObject.CompareTag("EnemyProjectile")
-            || other.gameObject.CompareTag("Boss")
-            || other.gameObject.CompareTag("BossProjectile")) return;
+            || other.gameObject.CompareTag("Boss")) return;
         
         EnemyController enemy;
         enemy = other.GetComponent<EnemyController>();
