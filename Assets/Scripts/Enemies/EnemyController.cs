@@ -5,11 +5,16 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] float visionDistance;
+    [SerializeField] float attackRange;
     [SerializeField] GoToPoint goToPoint;
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Rigidbody rb;
+    [SerializeField] Animator anim;
     public WitchPlayerController player;
+    const float spawnAnimation = 3;
+    float spawnEndTime;
     const float StillThreshold = 0.05f;
+    const string seePlayer = "SeePlayer";
 
 
 
@@ -19,15 +24,16 @@ public class EnemyController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        spawnEndTime = spawnAnimation + Time.time;
     }
 
     // Update is called once per frame
     void Update()
     {
         float playerDistance = (player.transform.position - transform.position).magnitude;
-        if (playerDistance <= visionDistance && agent.enabled)
+        if (playerDistance <= visionDistance && agent.enabled && Time.time > spawnEndTime)
         {
+            anim.SetBool(seePlayer, true);
             goToPoint.GoToTarget(player.transform.position);
         }
     }

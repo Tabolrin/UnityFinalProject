@@ -48,8 +48,9 @@ public class EnemySpawner : MonoBehaviour
         float distance = Random.Range(minRadius, radius);
         Vector3 enemySpawnPosition = (AngleToVector(angle) * distance) + transform.position;
         int enemyIndex = Random.Range(0, enemyArr.Length);
+        float randomAngle = Random.Range(0, 360);
 
-        EnemyController newEnemy = Instantiate(enemyArr[enemyIndex], enemySpawnPosition, Quaternion.identity).GetComponent<EnemyController>();
+        EnemyController newEnemy = Instantiate(enemyArr[enemyIndex], enemySpawnPosition, Quaternion.Euler(new Vector3(0, randomAngle, 0))).GetComponent<EnemyController>();
         newEnemy.player = player;
     }
 
