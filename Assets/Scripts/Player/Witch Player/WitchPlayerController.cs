@@ -92,7 +92,7 @@ public class WitchPlayerController : MonoBehaviour
 
             //calculate knockback
             Vector3 knockbackVect = (enemy.transform.position - transform.position).normalized * knockbackPower;
-            StartCoroutine(enemy.Knockback(knockbackVect));
+            enemy.CallKnockBack(knockbackVect);
         }
     }
 

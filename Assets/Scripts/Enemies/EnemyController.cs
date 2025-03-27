@@ -40,7 +40,12 @@ public class EnemyController : MonoBehaviour
         StartCoroutine(Knockback(knockbackVect));
     }
 
-    public IEnumerator Knockback(Vector3 force)
+    public void CallKnockBack(Vector3 force)
+    {
+        StartCoroutine(Knockback(force));
+    }
+
+    private IEnumerator Knockback(Vector3 force)
     {
         yield return null;
         agent.enabled = false;
