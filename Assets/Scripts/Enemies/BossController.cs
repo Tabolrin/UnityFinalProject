@@ -204,7 +204,7 @@ public class BossController : MonoBehaviour
                         // Set the projectile's direction and speed.
                         firebolt.SetDirection(firePoint.forward, projectileSpeed);
                         // Listen for when the projectile hits a target.
-                        firebolt.hitATarget.AddListener(DealDamage);
+                        firebolt.hitPlayer.AddListener(DealDamage);
                     }
                 }
             }
