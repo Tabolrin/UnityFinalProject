@@ -3307,7 +3307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9024522706638160564, guid: a544e658d2c4f854d8d66db701caf0cd, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -3802,7 +3802,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1297702587702294710, guid: 5c6de17030192014fb42fe38374731fc, type: 3}
       propertyPath: m_Speed
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1297702587702294710, guid: 5c6de17030192014fb42fe38374731fc, type: 3}
       propertyPath: m_Height
@@ -3818,7 +3818,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1297702587702294710, guid: 5c6de17030192014fb42fe38374731fc, type: 3}
       propertyPath: m_AngularSpeed
-      value: 300
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 2656176499243910581, guid: 5c6de17030192014fb42fe38374731fc, type: 3}
       propertyPath: m_LocalPosition.x

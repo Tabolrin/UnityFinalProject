@@ -577,7 +577,6 @@ GameObject:
   - component: {fileID: 6739700493234771541}
   - component: {fileID: 7864083823665338707}
   - component: {fileID: 8479348733690898529}
-  - component: {fileID: 1558304281030478810}
   m_Layer: 5
   m_Name: HpText
   m_TagString: Untagged
@@ -703,19 +702,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1558304281030478810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4396053359644697398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65754ced33ce4db4d979b089db4b6603, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 8479348733690898529}
 --- !u!1 &4736616760730613322
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,7 +984,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Score - 0
+  m_text: 'Score:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6fe9227b320b9a44babbcb7caf63a55f, type: 2}
   m_sharedMaterial: {fileID: -5598517667460541727, guid: 6fe9227b320b9a44babbcb7caf63a55f, type: 2}
