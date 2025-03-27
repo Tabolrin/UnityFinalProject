@@ -12,6 +12,8 @@ public class BossController : MonoBehaviour
     [Header("Movement Settings")]
     public NavMeshAgent agent;
     public Transform player;
+    public Animator anim;
+    const string deathTrigger = "DeathAnimation";
 
     [Header("Shooting Settings")]
     public GameObject projectilePrefab;  // Prefab must have a Rigidbody component.
@@ -37,7 +39,7 @@ public class BossController : MonoBehaviour
     void Update()
     {
         // Boss follows the player's position.
-        if (player != null)
+        if (player != null && agent.enabled)
         {
             agent.SetDestination(player.position);
         }
@@ -101,6 +103,12 @@ public class BossController : MonoBehaviour
     void Die()
     {
         // Handle death logic (animations, loot drops, etc.).
+        agent.enabled = false;
+        anim.SetTrigger(deathTrigger);
+    }
+    //An event set on the model object with the animator will call this as an animation event on the last frame of the animation
+    public void SelfDestruct()
+    {
         Destroy(gameObject);
     }
 
