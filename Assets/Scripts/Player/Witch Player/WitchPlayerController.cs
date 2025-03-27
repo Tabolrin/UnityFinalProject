@@ -35,7 +35,7 @@ public class WitchPlayerController : MonoBehaviour
 
     void Awake()
     {
-        Application.targetFrameRate = 10;
+        //Application.targetFrameRate = 10;
         SpikeTrap.onSpikeTouched += TakeDamage;
     }
 
