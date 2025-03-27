@@ -101,11 +101,13 @@ public class WitchPlayerController : MonoBehaviour
     {
         moveDirection = value.Get<Vector2>();
     }
+    
     private void OnLook(InputValue value)
     {
         Vector2 deltaMovement = value.Get<Vector2>();
         lookAngle += value.Get<Vector2>().x * cameraSpeed;
     }
+    
     private void OnFire()
     {
         anim.SetTrigger(shoot);
