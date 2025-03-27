@@ -54,7 +54,7 @@ public class WitchPlayerController : MonoBehaviour
         Vector3 directionVector = movementForward + movementRight;
         directionVector.y = 0;
         Vector3 movement = directionVector.normalized * speed;
-        rb.linearVelocity = new Vector3(movement.x, rb.linearVelocity.y, movement.z);
+        rb.linearVelocity = new Vector3(movement.x, 0, movement.z);
 
         //rotation
         //Vector3 look = new Vector3(lookDirection.x, 0, lookDirection.y);
