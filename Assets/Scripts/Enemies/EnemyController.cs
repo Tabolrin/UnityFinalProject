@@ -50,9 +50,10 @@ public class EnemyController : MonoBehaviour
 
         yield return new WaitForFixedUpdate();
         float knockbackTime = Time.time;
-        yield return new WaitUntil(
+        yield return new WaitUntil
+        (
             () => rb.linearVelocity.magnitude < StillThreshold
-            );
+        );
         //yield return new WaitForSeconds(knockbackStun);
 
         rb.linearVelocity = Vector3.zero;
