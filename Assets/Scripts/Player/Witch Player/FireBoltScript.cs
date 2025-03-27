@@ -19,8 +19,14 @@ public class FireBoltScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("Enemy") 
+            || other.gameObject.CompareTag("EnemyProjectile")
+            || other.gameObject.CompareTag("Boss")
+            || other.gameObject.CompareTag("BossProjectile")) return;
+        
         EnemyController enemy;
         enemy = other.GetComponent<EnemyController>();
+        
         if(enemy != null)
             hitATarget.Invoke(enemy);
         Destroy(gameObject);
