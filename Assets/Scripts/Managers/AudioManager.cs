@@ -62,25 +62,30 @@ public class AudioManager : MonoBehaviour
     {
         switch (actionSound)
         {
-            //---------Main Menu--------
-            case SoundClips.MainMenuBgMusic:
-            {
-                _musicAudioSource.clip = AudioClipsContainer.MainMenuBgMusic;
-                _musicAudioSource.Play();
-                break;
-            }
-            
-            //---------Maze Levels--------
+            //===============Music===============
+            //---------Main Menu & Maze Levels--------
             case SoundClips.MazeBgMusic:
             {
-                _sfxAudioSource.PlayOneShot(AudioClipsContainer.MazeBgMusic);
+                _musicAudioSource.PlayOneShot(AudioClipsContainer.MainMenuAndMazeBgMusic);
                 break;
             }
             
-            //---------Emotion Match--------
+            
             case SoundClips.LoseBgMusic:
             {
                 _musicAudioSource.PlayOneShot(AudioClipsContainer.LoseBgMusic);
+                break;
+            }
+
+            case SoundClips.WinBgMusic:
+            {
+                _musicAudioSource.PlayOneShot(AudioClipsContainer.WinBgMusic);
+                break;
+            }
+
+            case SoundClips.BossRoomBgMusic:
+            {
+                _musicAudioSource.PlayOneShot(AudioClipsContainer.BossRoomBgMusic);
                 break;
             }
         }
