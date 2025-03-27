@@ -47,7 +47,6 @@ public class BossController : MonoBehaviour
     {
         while (currentHP > 0)
         {
-
             float waitTime = Random.Range(shootIntervalMin, shootIntervalMax);
             yield return new WaitForSeconds(waitTime);
 

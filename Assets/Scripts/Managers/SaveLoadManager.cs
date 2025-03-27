@@ -16,14 +16,12 @@ public class PlayerData
     public Vector3 position;
     
     public int health;
-    
-    //public int mana; //-------------------------------??
 }
 
 
 public class SaveLoadManager : MonoBehaviour
 {
-    private bool HasActiveSave = false;
+    public static bool HasActiveSave = false;
     
     public GameObject player;
     
@@ -39,7 +37,6 @@ public class SaveLoadManager : MonoBehaviour
         {
             position = player.transform.position,
             health = playerHealth.health,
-            //mana = pc.mana
         };
 
         string json = JsonUtility.ToJson(data, true);
@@ -79,8 +76,6 @@ public class SaveLoadManager : MonoBehaviour
             var pc = player.GetComponent<PlayerHealth>();
             
             pc.health = data.playerInfo.health;
-            
-            //pc.mana = data.playerInfo.mana;
         }
     }
     
