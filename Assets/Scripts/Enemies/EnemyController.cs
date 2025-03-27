@@ -1,22 +1,33 @@
 using System.Collections;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
+    [Header("Settings")]
     [SerializeField] float visionDistance;
     [SerializeField] float attackRange;
+    [SerializeField] float projectileSpeed;
+
+    [Header("Refrences")]
     [SerializeField] GoToPoint goToPoint;
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Rigidbody rb;
     [SerializeField] Animator anim;
+    [SerializeField] GameObject projectile;
+    [SerializeField] GameObject shootPoint;
     public WitchPlayerController player;
-    const float spawnAnimation = 3;
-    float spawnEndTime;
-    const float StillThreshold = 0.05f;
-    const string walking = "Walk";
-    const string runningAnimation = "Running_A";
 
+    //Fields
+    float spawnEndTime;
+
+    //consts
+    const float StillThreshold = 0.05f;
+    const float spawnAnimation = 3;
+    const string walkingBool = "Walk";
+    const string shootTrigger = "Shoot";
+    const string runningAnimation = "Running_A";
 
 
     public int ContactDamage { get; private set; } = 10;
@@ -36,20 +47,21 @@ public class EnemyController : MonoBehaviour
             float playerDistance = (player.transform.position - transform.position).magnitude;
             if (playerDistance < attackRange)
             {
-                anim.SetBool(walking, false);
+                anim.SetBool(walkingBool, false);
                 agent.isStopped = true;
                 transform.LookAt(player.transform.position);
+                anim.SetTrigger(shootTrigger);
             }
             else if (playerDistance <= visionDistance)
             {
                 agent.isStopped = false;
-                anim.SetBool(walking, true);
+                anim.SetBool(walkingBool, true);
                 if (anim.GetCurrentAnimatorStateInfo(0).IsName(runningAnimation))
                     goToPoint.GoToTarget(player.transform.position);
             }
             else
             {
-                anim.SetBool(walking, false);
+                anim.SetBool(walkingBool, false);
                 agent.isStopped = true;
             }
         }
@@ -102,6 +114,14 @@ public class EnemyController : MonoBehaviour
 
     public void SpawnProjectile()
     {
-
+        if (projectile == null)
+            return;
+        FireBoltScript bolt = Instantiate(projectile, shootPoint.transform.position, transform.rotation).GetComponent<FireBoltScript>();
+        bolt.SetDirection(transform.forward, projectileSpeed);
+        bolt.hitPlayer.AddListener(DealDamage);
+    }
+    private void DealDamage(WitchPlayerController player)
+    {
+        player.TakeDamage(ContactDamage);
     }
 }
