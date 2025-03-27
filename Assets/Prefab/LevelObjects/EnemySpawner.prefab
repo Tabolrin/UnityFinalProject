@@ -55,7 +55,8 @@ MonoBehaviour:
   minimumEnemiesToSpawn: 1
   maximumEnemiesToSpawn: 3
   enemyArr:
-  - {fileID: 2913367767943907279, guid: 7157496c9c3772640be5e69890ba76da, type: 3}
+  - {fileID: 6049937062878750785, guid: 02fae923ea8612745b9cf6ba59f3de14, type: 3}
+  - {fileID: 539844159646734037, guid: 44890512ff83356499a0c4f34e2c2502, type: 3}
   player: {fileID: 0}
   particles: {fileID: 1520288909787790528}
 --- !u!1 &1898132779586534952
