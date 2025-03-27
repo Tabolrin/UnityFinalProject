@@ -11,7 +11,7 @@ public class FireBoltScript : MonoBehaviour
     public void SetDirection(Vector3 direction, float speed)
     {
         transform.position = new Vector3(transform.position.x, Y_LEVEL, transform.position.z);
-        rb.linearVelocity = direction * speed * Time.deltaTime;
+        rb.linearVelocity = direction * speed;
         
         if (rb.linearVelocity == Vector3.zero)
             Destroy(gameObject);

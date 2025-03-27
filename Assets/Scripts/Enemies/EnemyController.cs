@@ -4,12 +4,19 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
+    [SerializeField] float visionDistance;
+    [SerializeField] float attackRange;
     [SerializeField] GoToPoint goToPoint;
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Rigidbody rb;
+    [SerializeField] Animator anim;
     public WitchPlayerController player;
+    const float spawnAnimation = 3;
+    float spawnEndTime;
     const float StillThreshold = 0.05f;
-    const float knockbackStun = 0.25f;
+    const string walking = "Walk";
+    const string runningAnimation = "Running_A";
+
 
 
     public int ContactDamage { get; private set; } = 10;
@@ -18,14 +25,34 @@ public class EnemyController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        spawnEndTime = spawnAnimation + Time.time;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(agent.enabled)
-            goToPoint.GoToTarget(player.transform.position);
+        if (agent.enabled && Time.time > spawnEndTime)
+        {
+            float playerDistance = (player.transform.position - transform.position).magnitude;
+            if (playerDistance < attackRange)
+            {
+                anim.SetBool(walking, false);
+                agent.isStopped = true;
+                transform.LookAt(player.transform.position);
+            }
+            else if (playerDistance <= visionDistance)
+            {
+                agent.isStopped = false;
+                anim.SetBool(walking, true);
+                if (anim.GetCurrentAnimatorStateInfo(0).IsName(runningAnimation))
+                    goToPoint.GoToTarget(player.transform.position);
+            }
+            else
+            {
+                anim.SetBool(walking, false);
+                agent.isStopped = true;
+            }
+        }
     }
 
     public void TakeDamage(int damage)
@@ -64,11 +91,17 @@ public class EnemyController : MonoBehaviour
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         yield return null;
+        yield return null;
         rb.useGravity = false;
         rb.isKinematic = true;
         agent.Warp(transform.position);
         agent.enabled = true;
 
         yield return null;
+    }
+
+    public void SpawnProjectile()
+    {
+
     }
 }

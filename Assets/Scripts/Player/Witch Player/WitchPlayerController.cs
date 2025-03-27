@@ -8,7 +8,7 @@ public class WitchPlayerController : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float bulletSpeed;
     [SerializeField] int fireboltDamage;
-    [SerializeField] public readonly float knockbackPower;
+    [SerializeField] public float knockbackPower;
     [SerializeField] float cameraSpeed;
     [SerializeField] float animationDampenTime;
         
@@ -35,6 +35,7 @@ public class WitchPlayerController : MonoBehaviour
 
     void Awake()
     {
+        Application.targetFrameRate = 1000;
         SpikeTrap.onSpikeTouched += TakeDamage;
     }
 
@@ -50,23 +51,15 @@ public class WitchPlayerController : MonoBehaviour
         //position movement
         Vector3 movementForward = mainCamera.transform.forward * moveDirection.y;
         Vector3 movementRight = mainCamera.transform.right * moveDirection.x;
-        Vector3 movement = (movementForward + movementRight).normalized * speed;
+        Vector3 directionVector = movementForward + movementRight;
+        directionVector.y = 0;
+        Vector3 movement = directionVector.normalized * speed;
         rb.linearVelocity = new Vector3(movement.x, rb.linearVelocity.y, movement.z);
 
         //rotation
         //Vector3 look = new Vector3(lookDirection.x, 0, lookDirection.y);
         PlayerModel.transform.rotation = Quaternion.Euler(new Vector3(0, lookAngle, 0));
     }
-    //private Vector2 CalculateCorrectRotation(Vector2 screenPosition)
-    //{
-    //    Ray ray = mainCamera.ScreenPointToRay(screenPosition);
-    //    RaycastHit hit;
-    //    Physics.Raycast(ray, out hit);
-    //    Vector3 worldPos = hit.point;
-
-    //    Vector2 direction = new Vector2(worldPos.x - transform.position.x, worldPos.z - transform.position.z);
-    //    return direction.normalized;
-    //}
     private void ChangeAnimationSpeed()
     {
         anim.SetFloat(speedX, moveDirection.x, animationDampenTime, Time.deltaTime);
@@ -85,6 +78,7 @@ public class WitchPlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        //Debug.Log(collision.gameObject.name);
         if(collision.gameObject.tag == enemyTag)
         {
             EnemyController enemy = collision.gameObject.GetComponent<EnemyController>();
@@ -105,7 +99,8 @@ public class WitchPlayerController : MonoBehaviour
     private void OnLook(InputValue value)
     {
         Vector2 deltaMovement = value.Get<Vector2>();
-        lookAngle += value.Get<Vector2>().x * cameraSpeed;
+        deltaMovement.y = 0;
+        lookAngle += deltaMovement.x * cameraSpeed;
     }
     
     private void OnFire()

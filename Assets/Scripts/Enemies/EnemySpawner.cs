@@ -9,6 +9,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] float radius;
     float minRadius = 2;
     [Header("SpawnLogic")]
+    [SerializeField] float distanceFromPlayerSpawning;
     [SerializeField] float spawnCooldown;
     [SerializeField] float spawnTimingRandomness;
     [SerializeField] int minimumEnemiesToSpawn;
@@ -20,18 +21,17 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] WitchPlayerController player;
     [SerializeField] ParticleSystem particles;
 
+#if UNITY_EDITOR
     void OnDrawGizmosSelected()
     {
-
-#if UNITY_EDITOR
         Handles.color = Color.red;
         Handles.DrawSolidArc(transform.position, Vector3.up, AngleToVector(startingAngle), widthAngle, radius);
-#endif
     }
-
+#endif
     private void Update()
     {
-        if (Time.time > spawnTime)
+        float playerDistance = (player.transform.position - transform.position).magnitude;
+        if (playerDistance <= distanceFromPlayerSpawning && Time.time > spawnTime)
         {
             particles.Play();
             int enemyAmount = Random.Range(minimumEnemiesToSpawn, maximumEnemiesToSpawn + 1);
@@ -39,6 +39,7 @@ public class EnemySpawner : MonoBehaviour
                 SpawnEnemy();
             spawnTime = Time.time + spawnCooldown + Random.Range(0, spawnTimingRandomness);
         }
+        
     }
 
     public void SpawnEnemy()
@@ -47,8 +48,9 @@ public class EnemySpawner : MonoBehaviour
         float distance = Random.Range(minRadius, radius);
         Vector3 enemySpawnPosition = (AngleToVector(angle) * distance) + transform.position;
         int enemyIndex = Random.Range(0, enemyArr.Length);
+        float randomAngle = Random.Range(0, 360);
 
-        EnemyController newEnemy = Instantiate(enemyArr[enemyIndex], enemySpawnPosition, Quaternion.identity).GetComponent<EnemyController>();
+        EnemyController newEnemy = Instantiate(enemyArr[enemyIndex], enemySpawnPosition, Quaternion.Euler(new Vector3(0, randomAngle, 0))).GetComponent<EnemyController>();
         newEnemy.player = player;
     }
 
