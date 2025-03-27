@@ -77,7 +77,7 @@ public class BossController : MonoBehaviour
                     GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
                     FireBoltScript newFirebolt = Instantiate(projectile, firePoint.transform.position, Quaternion.identity).GetComponent<FireBoltScript>();
                     newFirebolt.SetDirection(firePoint.transform.forward, projectileSpeed);
-                    newFirebolt.hitATarget.AddListener(DealDamage);
+                    newFirebolt.hitPlayer.AddListener(DealDamage);
                 }
             }
         }
@@ -93,9 +93,9 @@ public class BossController : MonoBehaviour
         }
     }
     
-    private void DealDamage(EnemyController enemy)//---------------------------------------alter to event?
+    private void DealDamage(WitchPlayerController player)//---------------------------------------alter to event?
     {
-        enemy.TakeDamage(damage);
+        player.TakeDamage(damage);
     }
 
     void Die()
