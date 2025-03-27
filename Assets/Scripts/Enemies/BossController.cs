@@ -74,8 +74,8 @@ public class BossController : MonoBehaviour
                 if (firePoint != null)
                 {
                     // Spawn the projectile at the firePoint's position and rotation.
-                    GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
-                    FireBoltScript newFirebolt = Instantiate(projectile, firePoint.transform.position, Quaternion.identity).GetComponent<FireBoltScript>();
+                    //GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+                    FireBoltScript newFirebolt = Instantiate(projectilePrefab, firePoint.transform.position, Quaternion.identity).GetComponent<FireBoltScript>();
                     newFirebolt.SetDirection(firePoint.transform.forward, projectileSpeed);
                     newFirebolt.hitPlayer.AddListener(DealDamage);
                 }
@@ -96,6 +96,7 @@ public class BossController : MonoBehaviour
     private void DealDamage(WitchPlayerController player)//---------------------------------------alter to event?
     {
         player.TakeDamage(damage);
+        Debug.Log($"Player should have taken {damage} damage");
     }
 
     void Die()
