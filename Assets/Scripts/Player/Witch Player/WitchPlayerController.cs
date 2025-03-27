@@ -110,5 +110,4 @@ public class WitchPlayerController : MonoBehaviour
         newFirebolt.SetDirection(PlayerModel.transform.forward, bulletSpeed);
         newFirebolt.hitAnEnemy.AddListener(DealDamage);
     }
-        
 }
