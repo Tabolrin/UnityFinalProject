@@ -67,7 +67,7 @@ public class WitchPlayerController : MonoBehaviour
 
     }
 
-    private void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         hp.TakeDamage(damage);
     }
@@ -108,6 +108,6 @@ public class WitchPlayerController : MonoBehaviour
         anim.SetTrigger(shoot);
         FireBoltScript newFirebolt = Instantiate(firebolt, firePoint.transform.position, Quaternion.identity).GetComponent<FireBoltScript>();
         newFirebolt.SetDirection(PlayerModel.transform.forward, bulletSpeed);
-        newFirebolt.hitATarget.AddListener(DealDamage);
+        newFirebolt.hitAnEnemy.AddListener(DealDamage);
     }
 }

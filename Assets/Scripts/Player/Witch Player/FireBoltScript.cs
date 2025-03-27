@@ -5,7 +5,8 @@ using UnityEngine.Events;
 public class FireBoltScript : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb;
-    public UnityEvent<EnemyController> hitATarget;
+    public UnityEvent<EnemyController> hitAnEnemy;
+    public UnityEvent<WitchPlayerController> hitPlayer;
     private const float Y_LEVEL = 1;
     
     public void SetDirection(Vector3 direction, float speed)
@@ -19,15 +20,15 @@ public class FireBoltScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy") 
-            || other.gameObject.CompareTag("EnemyProjectile")
-            || other.gameObject.CompareTag("Boss")) return;
-        
-        EnemyController enemy;
-        enemy = other.GetComponent<EnemyController>();
-        
-        if(enemy != null)
-            hitATarget.Invoke(enemy);
+        EnemyController enemy = other.GetComponent<EnemyController>();
+        if(enemy)
+            hitAnEnemy.Invoke(enemy);
+        else
+        {
+            WitchPlayerController player = other.GetComponent<WitchPlayerController>();
+            if (player)
+                hitPlayer.Invoke(player);
+        }
         Destroy(gameObject);
     }
 }
