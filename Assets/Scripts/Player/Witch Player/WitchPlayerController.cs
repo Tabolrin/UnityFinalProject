@@ -8,7 +8,7 @@ public class WitchPlayerController : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float bulletSpeed;
     [SerializeField] int fireboltDamage;
-    [SerializeField] public readonly float knockbackPower;
+    [SerializeField] public float knockbackPower;
     [SerializeField] float cameraSpeed;
     [SerializeField] float animationDampenTime;
         

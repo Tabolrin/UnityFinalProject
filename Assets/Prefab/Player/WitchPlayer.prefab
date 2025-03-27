@@ -52,6 +52,7 @@ MonoBehaviour:
   speed: 20
   bulletSpeed: 30
   fireboltDamage: 1
+  knockbackPower: 6000
   cameraSpeed: 0.5
   animationDampenTime: 0.1
   rb: {fileID: 1656400206107516378}

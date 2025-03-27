@@ -14,7 +14,8 @@ public class EnemyController : MonoBehaviour
     const float spawnAnimation = 3;
     float spawnEndTime;
     const float StillThreshold = 0.05f;
-    const string seePlayer = "SeePlayer";
+    const string walking = "Walk";
+    const string runningAnimation = "Running_A";
 
 
 
@@ -30,11 +31,27 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float playerDistance = (player.transform.position - transform.position).magnitude;
-        if (playerDistance <= visionDistance && agent.enabled && Time.time > spawnEndTime)
+        if (agent.enabled && Time.time > spawnEndTime)
         {
-            anim.SetBool(seePlayer, true);
-            goToPoint.GoToTarget(player.transform.position);
+            float playerDistance = (player.transform.position - transform.position).magnitude;
+            if (playerDistance < attackRange)
+            {
+                anim.SetBool(walking, false);
+                agent.isStopped = true;
+                transform.LookAt(player.transform.position);
+            }
+            else if (playerDistance <= visionDistance)
+            {
+                agent.isStopped = false;
+                anim.SetBool(walking, true);
+                if (anim.GetCurrentAnimatorStateInfo(0).IsName(runningAnimation))
+                    goToPoint.GoToTarget(player.transform.position);
+            }
+            else
+            {
+                anim.SetBool(walking, false);
+                agent.isStopped = true;
+            }
         }
     }
 
@@ -81,5 +98,10 @@ public class EnemyController : MonoBehaviour
         agent.enabled = true;
 
         yield return null;
+    }
+
+    public void SpawnProjectile()
+    {
+
     }
 }
