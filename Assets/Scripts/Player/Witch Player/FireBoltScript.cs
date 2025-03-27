@@ -7,6 +7,7 @@ public class FireBoltScript : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     public UnityEvent<EnemyController> hitAnEnemy;
     public UnityEvent<WitchPlayerController> hitPlayer;
+    public UnityEvent<BossController> hitBoss;
     private const float Y_LEVEL = 1;
     
     public void SetDirection(Vector3 direction, float speed)
@@ -28,6 +29,12 @@ public class FireBoltScript : MonoBehaviour
             WitchPlayerController player = other.GetComponent<WitchPlayerController>();
             if (player)
                 hitPlayer.Invoke(player);
+            else
+            {
+                BossController boss = other.GetComponent<BossController>();
+                if(boss)
+                    hitBoss.Invoke(boss);
+            }
         }
         Destroy(gameObject);
     }

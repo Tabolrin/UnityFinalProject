@@ -75,6 +75,10 @@ public class WitchPlayerController : MonoBehaviour
     {
         enemy.TakeDamage(fireboltDamage);
     }
+    private void DealDamageToBoss(BossController boss)
+    {
+        boss.TakeDamage(fireboltDamage);
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -109,5 +113,6 @@ public class WitchPlayerController : MonoBehaviour
         FireBoltScript newFirebolt = Instantiate(firebolt, firePoint.transform.position, Quaternion.identity).GetComponent<FireBoltScript>();
         newFirebolt.SetDirection(PlayerModel.transform.forward, bulletSpeed);
         newFirebolt.hitAnEnemy.AddListener(DealDamage);
+        newFirebolt.hitBoss.AddListener(DealDamageToBoss);
     }
 }
