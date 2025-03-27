@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e87e4e91f8fd754d8cf45c6b1633a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visionDistance: 20
   goToPoint: {fileID: 2940778378686837875}
   agent: {fileID: 8071795451766291781}
   rb: {fileID: 8091556245920013683}

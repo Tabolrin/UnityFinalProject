@@ -4,12 +4,13 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
+    [SerializeField] float visionDistance;
     [SerializeField] GoToPoint goToPoint;
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Rigidbody rb;
     public WitchPlayerController player;
     const float StillThreshold = 0.05f;
-    const float knockbackStun = 0.25f;
+
 
 
     public int ContactDamage { get; private set; } = 10;
@@ -24,8 +25,11 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(agent.enabled)
+        float playerDistance = (player.transform.position - transform.position).magnitude;
+        if (playerDistance <= visionDistance && agent.enabled)
+        {
             goToPoint.GoToTarget(player.transform.position);
+        }
     }
 
     public void TakeDamage(int damage)

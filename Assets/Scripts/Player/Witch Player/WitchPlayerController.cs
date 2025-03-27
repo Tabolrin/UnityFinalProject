@@ -35,7 +35,7 @@ public class WitchPlayerController : MonoBehaviour
 
     void Awake()
     {
-        //Application.targetFrameRate = 10;
+        Application.targetFrameRate = 1000;
         SpikeTrap.onSpikeTouched += TakeDamage;
     }
 
@@ -51,7 +51,9 @@ public class WitchPlayerController : MonoBehaviour
         //position movement
         Vector3 movementForward = mainCamera.transform.forward * moveDirection.y;
         Vector3 movementRight = mainCamera.transform.right * moveDirection.x;
-        Vector3 movement = (movementForward + movementRight).normalized * speed;
+        Vector3 directionVector = movementForward + movementRight;
+        directionVector.y = 0;
+        Vector3 movement = directionVector.normalized * speed;
         rb.linearVelocity = new Vector3(movement.x, rb.linearVelocity.y, movement.z);
 
         //rotation
@@ -76,6 +78,7 @@ public class WitchPlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        //Debug.Log(collision.gameObject.name);
         if(collision.gameObject.tag == enemyTag)
         {
             EnemyController enemy = collision.gameObject.GetComponent<EnemyController>();

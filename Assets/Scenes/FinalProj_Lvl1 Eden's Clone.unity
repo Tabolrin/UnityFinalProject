@@ -785,7 +785,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4532172411503495232, guid: 10ee2112eb705984eb35ca5b40a6647d, type: 3}
       propertyPath: spawnCooldown
-      value: 100
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4532172411503495232, guid: 10ee2112eb705984eb35ca5b40a6647d, type: 3}
       propertyPath: startingAngle
@@ -937,10 +937,6 @@ PrefabInstance:
     - target: {fileID: 1406447606112729929, guid: 0ac57a771190bda4c8ffac4954bcdd42, type: 3}
       propertyPath: m_Name
       value: WitchPlayer
-      objectReference: {fileID: 0}
-    - target: {fileID: 2006162798388012079, guid: 0ac57a771190bda4c8ffac4954bcdd42, type: 3}
-      propertyPath: bulletSpeed
-      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8975627442689473262, guid: 0ac57a771190bda4c8ffac4954bcdd42, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1285,6 +1281,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2710853822057225731, guid: a544e658d2c4f854d8d66db701caf0cd, type: 3}
+      propertyPath: panel
+      value: 
+      objectReference: {fileID: 1849841103}
     - target: {fileID: 5264005585810450215, guid: a544e658d2c4f854d8d66db701caf0cd, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -2817,7 +2817,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4532172411503495232, guid: 10ee2112eb705984eb35ca5b40a6647d, type: 3}
       propertyPath: spawnCooldown
-      value: 100
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4532172411503495232, guid: 10ee2112eb705984eb35ca5b40a6647d, type: 3}
       propertyPath: startingAngle
@@ -2888,6 +2888,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7623278843388777792, guid: d286ccaa74b118a4993e8d3916cc4d0e, type: 3}
   m_PrefabInstance: {fileID: 1167672420}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1849841103 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7906841118331353485, guid: a544e658d2c4f854d8d66db701caf0cd, type: 3}
+  m_PrefabInstance: {fileID: 1016845877}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1853455198 stripped
 Transform:
@@ -4475,7 +4480,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4532172411503495232, guid: 10ee2112eb705984eb35ca5b40a6647d, type: 3}
       propertyPath: spawnCooldown
-      value: 100
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4532172411503495232, guid: 10ee2112eb705984eb35ca5b40a6647d, type: 3}
       propertyPath: startingAngle

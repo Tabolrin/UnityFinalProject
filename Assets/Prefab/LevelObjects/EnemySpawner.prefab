@@ -49,6 +49,7 @@ MonoBehaviour:
   startingAngle: 0
   widthAngle: 360
   radius: 10
+  distanceFromPlayerSpawning: 30
   spawnCooldown: 3
   spawnTimingRandomness: 2
   minimumEnemiesToSpawn: 1
