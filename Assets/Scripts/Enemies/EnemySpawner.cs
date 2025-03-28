@@ -7,16 +7,21 @@ public class EnemySpawner : MonoBehaviour
     [Range(0, 360)][SerializeField] float startingAngle;
     [Range(0, 360)][SerializeField] float widthAngle;
     [SerializeField] float radius;
+    
     float minRadius = 2;
+    
     [Header("SpawnLogic")]
     [SerializeField] float distanceFromPlayerSpawning;
     [SerializeField] float spawnCooldown;
     [SerializeField] float spawnTimingRandomness;
     [SerializeField] int minimumEnemiesToSpawn;
     [SerializeField] int maximumEnemiesToSpawn;
+    
     float spawnTime = 0;
+    
     [Header("Spawnable Enemies")]
     [SerializeField] GameObject[] enemyArr;
+    
     [Header("Refrences")]
     [SerializeField] WitchPlayerController player;
     [SerializeField] ParticleSystem particles;
@@ -39,7 +44,6 @@ public class EnemySpawner : MonoBehaviour
                 SpawnEnemy();
             spawnTime = Time.time + spawnCooldown + Random.Range(0, spawnTimingRandomness);
         }
-        
     }
 
     public void SpawnEnemy()

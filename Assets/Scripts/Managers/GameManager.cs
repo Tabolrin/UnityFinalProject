@@ -18,8 +18,6 @@ public class GameManager : MonoBehaviour
     //[SerializeField] HealthParameters healthParameters;
 
     private Scenes currentScene;
-    public ScoreManager scoreManager;
-    public TMP_Text finalScoreText;
     
     public static GameManager Instance;
 
@@ -55,28 +53,15 @@ public class GameManager : MonoBehaviour
 
             case Scenes.Lose:
             {
-                HighScore();
                 AudioManager.Instance.PlaySound(AudioManager.SoundClips.LoseBgMusic);
                 break;
             }
 
             case Scenes.Win:
             {
-                HighScore();
                 AudioManager.Instance.PlaySound(AudioManager.SoundClips.WinBgMusic);
                 break;
             }
-        }
-    }
-
-    private void HighScore()
-    {
-        if (finalScoreText != null)
-        {
-            if (scoreManager.SaveHighScore())
-                finalScoreText.text = $"New HighScore! \n Final Score: {scoreManager.currentScore}";
-            else 
-                finalScoreText.text = $"High Score: {PlayerPrefs.GetInt("HighScore")} \n Final Score: {scoreManager.currentScore}";
         }
     }
 }

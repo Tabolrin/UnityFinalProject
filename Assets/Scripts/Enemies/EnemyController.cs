@@ -122,6 +122,7 @@ public class EnemyController : MonoBehaviour
     {
         if (projectile == null) return;
         
+        AudioManager.Instance.PlaySound(AudioManager.SoundClips.EnemyAttackSfx);
         FireBoltScript bolt = Instantiate(projectile, shootPoint.transform.position, transform.rotation).GetComponent<FireBoltScript>();
         bolt.SetDirection(transform.forward, projectileSpeed);
         bolt.hitPlayer.AddListener(DealDamage);

@@ -17,6 +17,8 @@ public class PlayerData
     public Vector3 position;
     
     public int health;
+    
+    public int score;
 }
 
 
@@ -25,7 +27,6 @@ public class SaveLoadManager : MonoBehaviour
     public static bool HasActiveSave = false;
     
     public GameObject player;
-    
     
     public void SaveGame() 
     {
@@ -39,6 +40,7 @@ public class SaveLoadManager : MonoBehaviour
         {
             position = player.transform.position,
             health = playerHealth.health,
+            score = PlayerPrefs.GetInt("Score")
         };
 
         string json = JsonUtility.ToJson(data, true);
@@ -78,6 +80,8 @@ public class SaveLoadManager : MonoBehaviour
             var pc = player.GetComponent<PlayerHealth>();
             
             pc.health = data.playerInfo.health;
+            
+            PlayerPrefs.SetInt("Score", data.playerInfo.score);
         }
     }
     
