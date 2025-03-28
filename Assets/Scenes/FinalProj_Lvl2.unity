@@ -5014,6 +5014,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4389618110157182664, guid: f0c6b800786e74e458030dd4b44eb1a1, type: 3}
+      propertyPath: scoreManager
+      value: 
+      objectReference: {fileID: 1223612893}
     - target: {fileID: 7083886291198207674, guid: f0c6b800786e74e458030dd4b44eb1a1, type: 3}
       propertyPath: m_Name
       value: Power (1)
