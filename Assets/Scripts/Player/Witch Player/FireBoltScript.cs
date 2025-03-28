@@ -4,11 +4,12 @@ using UnityEngine.Events;
 
 public class FireBoltScript : MonoBehaviour
 {
+    private const float Y_LEVEL = 1;
+     
     [SerializeField] private Rigidbody rb;
     public UnityEvent<EnemyController> hitAnEnemy;
     public UnityEvent<WitchPlayerController> hitPlayer;
     public UnityEvent<BossController> hitBoss;
-    private const float Y_LEVEL = 1;
     
     public void SetDirection(Vector3 direction, float speed)
     {
@@ -22,11 +23,13 @@ public class FireBoltScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         EnemyController enemy = other.GetComponent<EnemyController>();
+        
         if(enemy)
             hitAnEnemy.Invoke(enemy);
         else
         {
             WitchPlayerController player = other.GetComponent<WitchPlayerController>();
+            
             if (player)
                 hitPlayer.Invoke(player);
             else

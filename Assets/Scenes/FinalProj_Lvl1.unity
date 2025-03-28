@@ -1706,6 +1706,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7906841118331353485, guid: a544e658d2c4f854d8d66db701caf0cd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8453638609420631659, guid: a544e658d2c4f854d8d66db701caf0cd, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -5048,10 +5052,10 @@ SceneRoots:
   m_Roots:
   - {fileID: 1016845877}
   - {fileID: 1671161960}
+  - {fileID: 1836444871}
   - {fileID: 1091471944}
   - {fileID: 1622888129}
   - {fileID: 1056415856}
   - {fileID: 2063255791}
   - {fileID: 1302145577}
   - {fileID: 816359195}
-  - {fileID: 1836444871}

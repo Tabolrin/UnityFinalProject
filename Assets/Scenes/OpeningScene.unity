@@ -802,8 +802,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -1820, y: -980}
+  m_AnchoredPosition: {x: 435.70508, y: 40}
+  m_SizeDelta: {x: -1833.4103, y: -980}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1540448499
 GameObject:
@@ -839,8 +839,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.028, y: 91.85288}
-  m_SizeDelta: {x: 900.7403, y: 588.5096}
+  m_AnchoredPosition: {x: 5.3921, y: 91.85288}
+  m_SizeDelta: {x: 755.9089, y: 588.5096}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1540448501
 MonoBehaviour:
@@ -862,9 +862,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Game
-
-    Title'
+  m_text: Dungeons & Wizards
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6fe9227b320b9a44babbcb7caf63a55f, type: 2}
   m_sharedMaterial: {fileID: -5598517667460541727, guid: 6fe9227b320b9a44babbcb7caf63a55f, type: 2}
@@ -891,7 +889,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 260.35
+  m_fontSize: 168.35
   m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -959,6 +957,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3047725930236062465, guid: 8d74c71ecacaf9740aa53ae74ad8d51a, type: 3}
+      propertyPath: m_MinValue
+      value: -30
+      objectReference: {fileID: 0}
     - target: {fileID: 3310559851238741324, guid: 8d74c71ecacaf9740aa53ae74ad8d51a, type: 3}
       propertyPath: m_Name
       value: OptionsPanel
@@ -990,6 +992,10 @@ PrefabInstance:
     - target: {fileID: 7265073406596086372, guid: 8d74c71ecacaf9740aa53ae74ad8d51a, type: 3}
       propertyPath: m_AnchorMin.x
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7811947993659787129, guid: 8d74c71ecacaf9740aa53ae74ad8d51a, type: 3}
+      propertyPath: m_MinValue
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 8756474301190174691, guid: 8d74c71ecacaf9740aa53ae74ad8d51a, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1400,11 +1406,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6768646669051630881, guid: 899a9a31bd413e942870378b8f14a2df, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 9.6376
+      value: 438.6376
       objectReference: {fileID: 0}
     - target: {fileID: 6768646669051630881, guid: 899a9a31bd413e942870378b8f14a2df, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -464
+      value: -424
       objectReference: {fileID: 0}
     - target: {fileID: 6768646669051630881, guid: 899a9a31bd413e942870378b8f14a2df, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1510,11 +1516,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1642137285147905465, guid: da44f0729fd4f3546b3abae23f72fd93, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 429
       objectReference: {fileID: 0}
     - target: {fileID: 1642137285147905465, guid: da44f0729fd4f3546b3abae23f72fd93, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -329
+      value: -289
       objectReference: {fileID: 0}
     - target: {fileID: 1642137285147905465, guid: da44f0729fd4f3546b3abae23f72fd93, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1770,9 +1776,9 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 2038904087}
   - {fileID: 462581134}
   - {fileID: 1763205089}
-  - {fileID: 2038904087}
   - {fileID: 291409378}
   - {fileID: 4913237027760317393}
   - {fileID: 7323639704549120276}

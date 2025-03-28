@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.IO;
 using Unity.VisualScripting;
@@ -31,8 +32,15 @@ public class SaveLoadManager : MonoBehaviour
     public void SaveGame() 
     {
         SaveData data = new SaveData();
+        try
+        {
+            data.sceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("outOfSceneRange");
+        }
         
-        data.sceneIndex = SceneManager.GetActiveScene().buildIndex;
         
         var playerHealth = player.GetComponent<PlayerHealth>();
         

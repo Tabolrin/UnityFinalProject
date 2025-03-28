@@ -13,9 +13,6 @@ public class GameManager : MonoBehaviour
         Lose,
         Win
     };
-    
-    //[SerializeField] PrefabHolderSO prefubHolderSO;
-    //[SerializeField] HealthParameters healthParameters;
 
     private Scenes currentScene;
     

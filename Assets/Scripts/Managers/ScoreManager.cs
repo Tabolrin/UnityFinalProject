@@ -27,6 +27,7 @@ public class ScoreManager : MonoBehaviour
     {
         currentScore = PlayerPrefs.GetInt("Score");
         PlayerPrefs.SetInt("Score", currentScore + amount); 
+        currentScore = PlayerPrefs.GetInt("Score");
     }
 
     public bool SaveHighScore()

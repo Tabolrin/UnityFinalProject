@@ -104,7 +104,6 @@ public class EnemyController : MonoBehaviour
         (
             () => rb.linearVelocity.magnitude < StillThreshold
         );
-        //yield return new WaitForSeconds(knockbackStun);
 
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
