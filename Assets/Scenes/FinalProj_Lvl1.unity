@@ -948,6 +948,10 @@ PrefabInstance:
       value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 4532172411503495232, guid: 10ee2112eb705984eb35ca5b40a6647d, type: 3}
+      propertyPath: scoreManager
+      value: 
+      objectReference: {fileID: 1091471945}
+    - target: {fileID: 4532172411503495232, guid: 10ee2112eb705984eb35ca5b40a6647d, type: 3}
       propertyPath: spawnCooldown
       value: 5
       objectReference: {fileID: 0}
@@ -1919,6 +1923,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ac4e3d2bbc06fa448d197a3e0197961, type: 3}
+--- !u!114 &1091471945 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 490850873579942304, guid: 5ac4e3d2bbc06fa448d197a3e0197961, type: 3}
+  m_PrefabInstance: {fileID: 1091471944}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65754ced33ce4db4d979b089db4b6603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1116244625
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2826,6 +2841,10 @@ PrefabInstance:
       propertyPath: widthAngle
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 4532172411503495232, guid: 10ee2112eb705984eb35ca5b40a6647d, type: 3}
+      propertyPath: scoreManager
+      value: 
+      objectReference: {fileID: 1091471945}
     - target: {fileID: 4532172411503495232, guid: 10ee2112eb705984eb35ca5b40a6647d, type: 3}
       propertyPath: spawnCooldown
       value: 5
@@ -4973,6 +4992,10 @@ PrefabInstance:
       propertyPath: widthAngle
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 4532172411503495232, guid: 10ee2112eb705984eb35ca5b40a6647d, type: 3}
+      propertyPath: scoreManager
+      value: 
+      objectReference: {fileID: 1091471945}
     - target: {fileID: 4532172411503495232, guid: 10ee2112eb705984eb35ca5b40a6647d, type: 3}
       propertyPath: spawnCooldown
       value: 5

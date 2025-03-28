@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8251814977831079669}
   - component: {fileID: 4532172411503495232}
+  - component: {fileID: 1674504467373111993}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -59,6 +60,27 @@ MonoBehaviour:
   - {fileID: 539844159646734037, guid: 44890512ff83356499a0c4f34e2c2502, type: 3}
   player: {fileID: 0}
   particles: {fileID: 1520288909787790528}
+--- !u!65 &1674504467373111993
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469556362377061268}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.6329727, y: 4.666636, z: 1.6759682}
+  m_Center: {x: -0.08275223, y: 1.8333185, z: -0.034820557}
 --- !u!1 &1898132779586534952
 GameObject:
   m_ObjectHideFlags: 0

@@ -32,6 +32,7 @@ public class SaveLoadManager : MonoBehaviour
     public void SaveGame() 
     {
         SaveData data = new SaveData();
+        
         try
         {
             data.sceneIndex = SceneManager.GetActiveScene().buildIndex + 1;

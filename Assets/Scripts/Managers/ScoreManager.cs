@@ -1,4 +1,6 @@
+using System;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
@@ -14,6 +16,11 @@ public class ScoreManager : MonoBehaviour
             currentScore = PlayerPrefs.GetInt("Score");
         
         text.text = $"Score: {currentScore.ToString()}";
+    }
+
+    private void Update()
+    {
+        text.text = $"Score: {currentScore}";
     }
 
     public void UpdateScoreText(int amount)

@@ -25,6 +25,7 @@ public class EnemySpawner : MonoBehaviour
     [Header("Refrences")]
     [SerializeField] WitchPlayerController player;
     [SerializeField] ParticleSystem particles;
+    [SerializeField] ScoreManager scoreManager;
 
 #if UNITY_EDITOR
     void OnDrawGizmosSelected()
@@ -56,6 +57,7 @@ public class EnemySpawner : MonoBehaviour
 
         EnemyController newEnemy = Instantiate(enemyArr[enemyIndex], enemySpawnPosition, Quaternion.Euler(new Vector3(0, randomAngle, 0))).GetComponent<EnemyController>();
         newEnemy.player = player;
+        newEnemy.scoreManager = scoreManager;
     }
 
     private Vector3 AngleToVector(float angle)
