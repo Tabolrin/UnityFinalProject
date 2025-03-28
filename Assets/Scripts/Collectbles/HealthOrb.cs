@@ -11,11 +11,10 @@ public class HealthOrb : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) { return; }
-
         if (used) { return; }
-
+        
+        AudioManager.Instance.PlaySound(AudioManager.SoundClips.PowerUpCollectedSfx);
         onHealthOrbTouched.Invoke(healthParameters.healAmount);
-      
         gameObject.SetActive(false);
 
         used = true;

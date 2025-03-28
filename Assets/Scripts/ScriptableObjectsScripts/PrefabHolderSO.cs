@@ -18,19 +18,19 @@ public class PrefabHolderSO : ScriptableObject
         switch (randomNumber)
         {
             case PrefubOptions.powerOrb:
-                {
-                    return powerOrb;
-                }
+            {
+                return powerOrb;
+            }
 
             case PrefubOptions.healthOrb:
-                {
-                    return healthOrb;
-                }
+            {
+                return healthOrb;
+            }
 
             case PrefubOptions.spikeTrap:
-                {
-                    return spikeTrap;
-                }
+            {
+                return spikeTrap;
+            }
         }
 
         return powerOrb;

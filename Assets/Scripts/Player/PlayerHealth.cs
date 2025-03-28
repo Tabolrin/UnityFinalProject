@@ -13,7 +13,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Awake()
     {
-        health = healthParameters.MaxHealth;
+        health = healthParameters.PlayerMaxHealth;
         HealthOrb.onHealthOrbTouched += AddHealth;
         SpikeTrap.onSpikeTouched += TakeDamage;
     }
@@ -27,20 +27,20 @@ public class PlayerHealth : MonoBehaviour
     public void AddHealth(int amount)
     {
         if (health <= 0) { return; }
-        health = math.min(healthParameters.MaxHealth, health + amount);
+        health = math.min(healthParameters.PlayerMaxHealth, health + amount);
         OnHealthUpdated.Invoke(health);
     }
 
     public void TakeDamage(int amount)
     {
-        health = math.max(health - amount, healthParameters.MinHealth);
-        if (health <= healthParameters.MinHealth) { PlayerDied(); }
+        health = math.max(health - amount, healthParameters.PlayerMinHealth);
+        if (health <= healthParameters.PlayerMinHealth) { PlayerDied(); }
         OnHealthUpdated.Invoke(health);
     }
 
     private void PlayerDied()
     {
-        health = healthParameters.MaxHealth;
+        health = healthParameters.PlayerMaxHealth;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

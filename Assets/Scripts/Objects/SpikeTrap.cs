@@ -4,8 +4,8 @@ using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 public class SpikeTrap : MonoBehaviour
 {
-    //[SerializeField] HealthParameters healthParameters;
-    [SerializeField] public int SpikeDamageAmount;
+    [SerializeField] HealthParameters healthParameters;
+
 
     private float tickAfterTouch;
     private float touchCoolDown = 1f;
@@ -25,6 +25,6 @@ public class SpikeTrap : MonoBehaviour
 
         tickAfterTouch = Time.time + touchCoolDown;
 
-        onSpikeTouched.Invoke(SpikeDamageAmount);
+        onSpikeTouched.Invoke(healthParameters.SpikeDamageAmount);
     }
 }

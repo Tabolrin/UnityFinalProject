@@ -600,7 +600,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneToLoad: FinalProj_Lvl2
-  sceneChanger: {fileID: 1480333923}
+  sceneHandler: {fileID: 0}
+  saveLoadManager: {fileID: 0}
 --- !u!1 &618169962
 GameObject:
   m_ObjectHideFlags: 0
@@ -2345,8 +2346,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c046678566870b842b4958cf9bb33f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefubHolderSO: {fileID: 11400000, guid: a5ee8c444f24dcf448d155f63375646d, type: 2}
-  healthParameters: {fileID: 11400000, guid: c51469c41884e3b47b313c68aa563fe0, type: 2}
+  scoreManager: {fileID: 0}
+  finalScoreText: {fileID: 0}
 --- !u!1001 &1651991914
 PrefabInstance:
   m_ObjectHideFlags: 0

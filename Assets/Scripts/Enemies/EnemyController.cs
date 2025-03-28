@@ -1,5 +1,4 @@
 using System.Collections;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -18,6 +17,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] GameObject projectile;
     [SerializeField] GameObject shootPoint;
     public WitchPlayerController player;
+    public ScoreManager scoreManager;
 
     //Fields
     float spawnEndTime;
@@ -45,6 +45,7 @@ public class EnemyController : MonoBehaviour
         if (agent.enabled && Time.time > spawnEndTime)
         {
             float playerDistance = (player.transform.position - transform.position).magnitude;
+            
             if (playerDistance < attackRange)
             {
                 anim.SetBool(walkingBool, false);
@@ -69,9 +70,13 @@ public class EnemyController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        AudioManager.Instance.PlaySound(AudioManager.SoundClips.EnemyHurtSfx);
         hp -= damage;
+        
         if (hp <= 0)
         {
+            scoreManager.AddScore(10);
+            
             Destroy(gameObject);
             return;
         }
@@ -94,6 +99,7 @@ public class EnemyController : MonoBehaviour
 
         yield return new WaitForFixedUpdate();
         float knockbackTime = Time.time;
+        
         yield return new WaitUntil
         (
             () => rb.linearVelocity.magnitude < StillThreshold
@@ -114,8 +120,8 @@ public class EnemyController : MonoBehaviour
 
     public void SpawnProjectile()
     {
-        if (projectile == null)
-            return;
+        if (projectile == null) return;
+        
         FireBoltScript bolt = Instantiate(projectile, shootPoint.transform.position, transform.rotation).GetComponent<FireBoltScript>();
         bolt.SetDirection(transform.forward, projectileSpeed);
         bolt.hitPlayer.AddListener(DealDamage);

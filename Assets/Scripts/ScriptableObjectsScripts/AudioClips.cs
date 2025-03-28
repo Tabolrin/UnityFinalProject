@@ -11,7 +11,7 @@ public class AudioClips : ScriptableObject
     
     [Header("---------------SFX---------------")]
     public AudioClip PlayerHurtSfx;
-    public AudioClip PlayerAttackSfx;
+    public AudioClip PlayerAndBossAttackSfx;
     public AudioClip EnemyAttackSfx;
     public AudioClip EnemyHurtSfx;
     public AudioClip PowerUpCollectedSfx;

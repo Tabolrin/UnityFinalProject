@@ -1,17 +1,19 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PowerCollection : MonoBehaviour
+public class BonusScoreCollection : MonoBehaviour
 {
     private bool used = false;
-    private int powerValue = 5;
-    public UnityEvent<int> powerTouched;
+    private int scoreValue = 5;
+    public UnityEvent<int> bonusScoreTouched;
 
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) { return; }
         if (used) { return; }
-        powerTouched.Invoke(powerValue);
+        
+        AudioManager.Instance.PlaySound(AudioManager.SoundClips.PowerUpCollectedSfx);
+        bonusScoreTouched.Invoke(scoreValue);
         used = true;
         gameObject.SetActive(false);
     }

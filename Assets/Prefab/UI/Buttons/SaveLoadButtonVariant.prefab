@@ -8,6 +8,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 527632655769838872, guid: da44f0729fd4f3546b3abae23f72fd93, type: 3}
+      propertyPath: m_text
+      value: Load Checkpoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 527632655769838872, guid: da44f0729fd4f3546b3abae23f72fd93, type: 3}
+      propertyPath: m_fontSize
+      value: 19.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 527632655769838872, guid: da44f0729fd4f3546b3abae23f72fd93, type: 3}
+      propertyPath: m_margin.w
+      value: -0.96375275
+      objectReference: {fileID: 0}
+    - target: {fileID: 527632655769838872, guid: da44f0729fd4f3546b3abae23f72fd93, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1642137285147905465, guid: da44f0729fd4f3546b3abae23f72fd93, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -34,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1642137285147905465, guid: da44f0729fd4f3546b3abae23f72fd93, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 160
+      value: 179.2751
       objectReference: {fileID: 0}
     - target: {fileID: 1642137285147905465, guid: da44f0729fd4f3546b3abae23f72fd93, type: 3}
       propertyPath: m_SizeDelta.y
@@ -58,23 +74,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1642137285147905465, guid: da44f0729fd4f3546b3abae23f72fd93, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1642137285147905465, guid: da44f0729fd4f3546b3abae23f72fd93, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1642137285147905465, guid: da44f0729fd4f3546b3abae23f72fd93, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1642137285147905465, guid: da44f0729fd4f3546b3abae23f72fd93, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 491
       objectReference: {fileID: 0}
     - target: {fileID: 1642137285147905465, guid: da44f0729fd4f3546b3abae23f72fd93, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 597
+      value: -393
       objectReference: {fileID: 0}
     - target: {fileID: 1642137285147905465, guid: da44f0729fd4f3546b3abae23f72fd93, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -91,6 +107,14 @@ PrefabInstance:
     - target: {fileID: 2117969100273591090, guid: da44f0729fd4f3546b3abae23f72fd93, type: 3}
       propertyPath: m_Name
       value: SaveLoadButtonVariant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864401972404347610, guid: da44f0729fd4f3546b3abae23f72fd93, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -14.4564
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864401972404347610, guid: da44f0729fd4f3546b3abae23f72fd93, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.48190308
       objectReference: {fileID: 0}
     - target: {fileID: 8602903566468516562, guid: da44f0729fd4f3546b3abae23f72fd93, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -110,15 +134,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8602903566468516562, guid: da44f0729fd4f3546b3abae23f72fd93, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: LoadGame
       objectReference: {fileID: 0}
     - target: {fileID: 8602903566468516562, guid: da44f0729fd4f3546b3abae23f72fd93, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: 
+      value: SaveLoadManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8602903566468516562, guid: da44f0729fd4f3546b3abae23f72fd93, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: 
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

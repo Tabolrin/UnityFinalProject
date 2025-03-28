@@ -17,8 +17,8 @@ MonoBehaviour:
   MainMenuAndMazeBgMusic: {fileID: 8300000, guid: 6a1db9b2340989a46b609f50417dc6ee, type: 3}
   BossRoomBgMusic: {fileID: 8300000, guid: e76d37aad272a0248bbf7d8e68bddd33, type: 3}
   PlayerHurtSfx: {fileID: 8300000, guid: b4119dbc11727564caf0c302f8f9f089, type: 3}
-  PlayerAttackSfx: {fileID: 8300000, guid: 9d32e46cc541e774a91b5c644e182893, type: 3}
-  EnemyAttackSfx: {fileID: 0}
+  PlayerAndBossAttackSfx: {fileID: 8300000, guid: 9d32e46cc541e774a91b5c644e182893, type: 3}
+  EnemyAttackSfx: {fileID: 8300000, guid: 9be76db49dc096147a7968097ea2a6b9, type: 3}
   EnemyHurtSfx: {fileID: 8300000, guid: b5dedcfd787cea441901a31c3ecce602, type: 3}
   PowerUpCollectedSfx: {fileID: 8300000, guid: 0d56b74a8eafdf74bb7ec05e85c0222d, type: 3}
   PlayerDeathSfx: {fileID: 8300000, guid: 610e08906572a8f42b4dd1f536ecb198, type: 3}
