@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4389618110157182664}
   - component: {fileID: 4449857901509054061}
   m_Layer: 0
-  m_Name: Power
+  m_Name: ScoreUpOrb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
