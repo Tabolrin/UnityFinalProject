@@ -1,10 +1,13 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEngine.InputSystem.InputAction;
+
 
 public class WitchPlayerController : MonoBehaviour
 {
     [Header("Settings")]
+    [SerializeField] bool alive = true;
     [SerializeField] float speed;
     [SerializeField] float bulletSpeed;
     [SerializeField] int fireboltDamage;
@@ -22,6 +25,7 @@ public class WitchPlayerController : MonoBehaviour
     [SerializeField] Camera mainCamera;
     [SerializeField] GameObject firebolt;
     [SerializeField] GameObject firePoint;
+    [SerializeField] SceneHandler sceneHandler;
     
     //constant strings
     const string speedX = "SpeedX";
@@ -42,6 +46,9 @@ public class WitchPlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if ( hp.health <= 0)
+            Death();
+            
         Move();
         ChangeAnimationSpeed();
     }
@@ -64,17 +71,19 @@ public class WitchPlayerController : MonoBehaviour
     {
         anim.SetFloat(speedX, moveDirection.x, animationDampenTime, Time.deltaTime);
         anim.SetFloat(speedY, moveDirection.y, animationDampenTime, Time.deltaTime);
-
     }
 
     public void TakeDamage(int damage)
     {
+        AudioManager.Instance.PlaySound(AudioManager.SoundClips.PlayerHurtSfx);
         hp.TakeDamage(damage);
     }
+    
     private void DealDamage(EnemyController enemy)
     {
         enemy.TakeDamage(fireboltDamage);
     }
+    
     private void DealDamageToBoss(BossController boss)
     {
         boss.TakeDamage(fireboltDamage);
@@ -82,7 +91,6 @@ public class WitchPlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //Debug.Log(collision.gameObject.name);
         if(collision.gameObject.tag == enemyTag)
         {
             EnemyController enemy = collision.gameObject.GetComponent<EnemyController>();
@@ -110,9 +118,25 @@ public class WitchPlayerController : MonoBehaviour
     private void OnFire()
     {
         anim.SetTrigger(shoot);
+        AudioManager.Instance.PlaySound(AudioManager.SoundClips.PlayerAttackSfx);
         FireBoltScript newFirebolt = Instantiate(firebolt, firePoint.transform.position, Quaternion.identity).GetComponent<FireBoltScript>();
         newFirebolt.SetDirection(PlayerModel.transform.forward, bulletSpeed);
         newFirebolt.hitAnEnemy.AddListener(DealDamage);
         newFirebolt.hitBoss.AddListener(DealDamageToBoss);
+    }
+
+    private void Death()
+    {
+        StartCoroutine(DeathSequence());
+    }
+    
+    private IEnumerator DeathSequence()
+    {
+        alive = false;
+        anim.SetBool("IsAlive", false);
+        
+        yield return new WaitForSeconds(1f);
+        
+        sceneHandler.Load("LoseScene");
     }
 }

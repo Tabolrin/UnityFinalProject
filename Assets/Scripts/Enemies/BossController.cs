@@ -7,39 +7,39 @@ public class BossController : MonoBehaviour
     [Header("Boss Stats")]
     public int maxHP = 30;
     private int currentHP;
-    public int damage = 2;
+    private int damage = 2;
 
     [Header("Movement Settings")]
     public NavMeshAgent agent;
     public Transform player;
-    public Animator anim;
-    const string deathTrigger = "DeathAnimation";
 
     [Header("Shooting Settings")]
-    public GameObject projectilePrefab;  // Prefab must have a Rigidbody component.
+    public GameObject projectilePrefab; 
     public Transform leftFirePoint;
     public Transform middleFirePoint;
     public Transform rightFirePoint;
     public float projectileSpeed = 10f;
     public float shootIntervalMin = 3f;
     public float shootIntervalMax = 6f;
+    
+    [Header("Refrences")]
+    [SerializeField] SceneHandler sceneHandler;
+    [SerializeField] GameObject finishLevel;
+    [SerializeField] ScoreManager scoreManager;
 
     void Start()
     {
         currentHP = maxHP;
         
-        // Automatically get the NavMeshAgent if not already assigned.
         if (agent == null)
             agent = GetComponent<NavMeshAgent>();
-
-        // Begin the shooting routine.
+        
         StartCoroutine(ShootingRoutine());
     }
 
     void Update()
     {
-        // Boss follows the player's position.
-        if (player != null && agent.enabled)
+        if (player != null)
         {
             agent.SetDestination(player.position);
         }
@@ -51,7 +51,6 @@ public class BossController : MonoBehaviour
         {
             float waitTime = Random.Range(shootIntervalMin, shootIntervalMax);
             yield return new WaitForSeconds(waitTime);
-
 
             int projectileCount = Random.Range(1, 4);
             Transform[] chosenFirePoints;
@@ -69,7 +68,7 @@ public class BossController : MonoBehaviour
                 chosenFirePoints = new Transform[] { leftFirePoint, middleFirePoint, rightFirePoint };
             }
 
-            // Instantiate projectiles from each chosen fire point.
+            // Instantiate projectiles from relevant fire points.
             foreach (Transform firePoint in chosenFirePoints)
             {
                 if (firePoint != null)
@@ -81,43 +80,43 @@ public class BossController : MonoBehaviour
                     newFirebolt.hitPlayer.AddListener(DealDamage);
                 }
             }
+            
+            AudioManager.Instance.PlaySound(AudioManager.SoundClips.BossAttackSfx);
         }
     }
-
-    // Call this method from other scripts to damage the boss.
+    
     public void TakeDamage(int amount)
     {
+        AudioManager.Instance.PlaySound(AudioManager.SoundClips.EnemyHurtSfx);
         currentHP -= amount;
+        
         if (currentHP <= 0)
         {
             Die();
         }
     }
     
-    private void DealDamage(WitchPlayerController player)//---------------------------------------alter to event?
+    private void DealDamage(WitchPlayerController player)
     {
         player.TakeDamage(damage);
         Debug.Log($"Player should have taken {damage} damage");
     }
 
-    void Die()
+    private void Die()
     {
-        // Handle death logic (animations, loot drops, etc.).
-        agent.enabled = false;
-        anim.SetTrigger(deathTrigger);
-    }
-    //An event set on the model object with the animator will call this as an animation event on the last frame of the animation
-    public void SelfDestruct()
-    {
+        scoreManager.AddScore(30);
+        AudioManager.Instance.PlaySound(AudioManager.SoundClips.LevelWinSfx);
+        finishLevel.SetActive(true);
+        
         Destroy(gameObject);
     }
-
-    // When the boss collides with the player, deal damage.
+    
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+            
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(damage);

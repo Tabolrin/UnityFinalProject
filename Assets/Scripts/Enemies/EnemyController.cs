@@ -1,5 +1,4 @@
 using System.Collections;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -18,6 +17,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] GameObject projectile;
     [SerializeField] GameObject shootPoint;
     public WitchPlayerController player;
+    public ScoreManager scoreManager;
 
     //Fields
     float spawnEndTime;
@@ -28,7 +28,6 @@ public class EnemyController : MonoBehaviour
     const string walkingBool = "Walk";
     const string shootTrigger = "Shoot";
     const string runningAnimation = "Running_A";
-
 
     public int ContactDamage { get; private set; } = 10;
     int hp = 2;
@@ -45,6 +44,7 @@ public class EnemyController : MonoBehaviour
         if (agent.enabled && Time.time > spawnEndTime)
         {
             float playerDistance = (player.transform.position - transform.position).magnitude;
+            
             if (playerDistance < attackRange)
             {
                 anim.SetBool(walkingBool, false);
@@ -69,9 +69,13 @@ public class EnemyController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        AudioManager.Instance.PlaySound(AudioManager.SoundClips.EnemyHurtSfx);
         hp -= damage;
+        
         if (hp <= 0)
         {
+            scoreManager.AddScore(5);
+            
             Destroy(gameObject);
             return;
         }
@@ -94,11 +98,11 @@ public class EnemyController : MonoBehaviour
 
         yield return new WaitForFixedUpdate();
         float knockbackTime = Time.time;
+        
         yield return new WaitUntil
         (
             () => rb.linearVelocity.magnitude < StillThreshold
         );
-        //yield return new WaitForSeconds(knockbackStun);
 
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
@@ -114,8 +118,9 @@ public class EnemyController : MonoBehaviour
 
     public void SpawnProjectile()
     {
-        if (projectile == null)
-            return;
+        if (projectile == null) return;
+        
+        AudioManager.Instance.PlaySound(AudioManager.SoundClips.EnemyAttackSfx);
         FireBoltScript bolt = Instantiate(projectile, shootPoint.transform.position, transform.rotation).GetComponent<FireBoltScript>();
         bolt.SetDirection(transform.forward, projectileSpeed);
         bolt.hitPlayer.AddListener(DealDamage);

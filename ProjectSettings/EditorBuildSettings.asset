@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/OpeningScene.unity
     guid: bb5f60915e4f9384d8e3797c26c1effb
   - enabled: 1
-    path: Assets/Scenes/FinalProj_Lvl1 Eden's Clone.unity
-    guid: 4137fe18163c85e4888efefa8a1f4613
+    path: Assets/Scenes/FinalProj_Lvl1.unity
+    guid: 038d9eb4f92ceff418203fe1635c5e16
   - enabled: 1
     path: Assets/Scenes/FinalProj_Lvl2.unity
     guid: cdaad74c1e06519488c856842b696c4f

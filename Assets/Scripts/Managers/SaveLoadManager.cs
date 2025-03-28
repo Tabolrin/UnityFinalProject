@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.IO;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,6 +18,8 @@ public class PlayerData
     public Vector3 position;
     
     public int health;
+    
+    public int score;
 }
 
 
@@ -29,7 +33,15 @@ public class SaveLoadManager : MonoBehaviour
     {
         SaveData data = new SaveData();
         
-        data.sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        try
+        {
+            data.sceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("outOfSceneRange");
+        }
+        
         
         var playerHealth = player.GetComponent<PlayerHealth>();
         
@@ -37,6 +49,7 @@ public class SaveLoadManager : MonoBehaviour
         {
             position = player.transform.position,
             health = playerHealth.health,
+            score = PlayerPrefs.GetInt("Score")
         };
 
         string json = JsonUtility.ToJson(data, true);
@@ -76,6 +89,8 @@ public class SaveLoadManager : MonoBehaviour
             var pc = player.GetComponent<PlayerHealth>();
             
             pc.health = data.playerInfo.health;
+            
+            PlayerPrefs.SetInt("Score", data.playerInfo.score);
         }
     }
     
