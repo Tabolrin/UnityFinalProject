@@ -75,7 +75,7 @@ public class EnemyController : MonoBehaviour
         
         if (hp <= 0)
         {
-            scoreManager.AddScore(10);
+            scoreManager.AddScore(5);
             
             Destroy(gameObject);
             return;

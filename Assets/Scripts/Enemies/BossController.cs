@@ -25,6 +25,7 @@ public class BossController : MonoBehaviour
     [Header("Refrences")]
     [SerializeField] SceneHandler sceneHandler;
     [SerializeField] GameObject finishLevel;
+    [SerializeField] ScoreManager scoreManager;
 
     void Start()
     {
@@ -103,6 +104,7 @@ public class BossController : MonoBehaviour
 
     private void Die()
     {
+        scoreManager.AddScore(30);
         AudioManager.Instance.PlaySound(AudioManager.SoundClips.LevelWinSfx);
         finishLevel.SetActive(true);
         

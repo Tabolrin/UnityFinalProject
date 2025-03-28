@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad5f3fc7604228468c8f05ed27fae9d, type: 3}
   m_Name: HealthParameters
   m_EditorClassIdentifier: 
-  MaxHealth: 100
-  MinHealth: 0
+  PlayerMaxHealth: 100
+  PlayerMinHealth: 0
   SpikeDamageAmount: 10
-  healAmount: 20
+  SkeletonMeleeDamageAmount: 3
+  SkeletonRangedDamageAmount: 2
+  BossMeleeDamageAmount: 10
+  BossRangedDamageAmount: 8
+  healAmount: 33
