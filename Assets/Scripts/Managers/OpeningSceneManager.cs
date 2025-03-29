@@ -7,6 +7,8 @@ public class OpeningSceneManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
+        PlayerPrefs.SetInt("Score", 0);
+        
         if (SaveLoadManager.HasActiveSave)
             loadButton.SetActive(true);
         else

@@ -1,6 +1,4 @@
-using System;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
@@ -27,17 +25,17 @@ public class ScoreManager : MonoBehaviour
 
     public void UpdateScoreText(int amount)
     {
-        currentScore = PlayerPrefs.GetInt("Score");
-        currentScore += amount;
+        //currentScore = PlayerPrefs.GetInt("Score");
+        //currentScore += amount;
+        
         if (text != null)
             text.text = $"Score: {currentScore}";
     }
 
     public void AddScore(int amount)
     {
-        currentScore = PlayerPrefs.GetInt("Score");
+        currentScore += amount; 
         PlayerPrefs.SetInt("Score", currentScore + amount); 
-        currentScore = PlayerPrefs.GetInt("Score");
     }
 
     public bool SaveHighScore()

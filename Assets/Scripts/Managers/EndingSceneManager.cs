@@ -7,7 +7,7 @@ public class EndingSceneManager : MonoBehaviour
     public ScoreManager scoreManager;
     public TMP_Text  finalScoreText;
 
-    private void Awake()
+    private void Start()
     {
         HighScore();
     }
