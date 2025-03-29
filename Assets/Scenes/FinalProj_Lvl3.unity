@@ -1352,6 +1352,10 @@ PrefabInstance:
       value: WitchPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 2006162798388012079, guid: 0ac57a771190bda4c8ffac4954bcdd42, type: 3}
+      propertyPath: pauseButton
+      value: 
+      objectReference: {fileID: 1859464069}
+    - target: {fileID: 2006162798388012079, guid: 0ac57a771190bda4c8ffac4954bcdd42, type: 3}
       propertyPath: sceneHandler
       value: 
       objectReference: {fileID: 1665283349}
@@ -4682,6 +4686,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1859464069 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 716180734693896530, guid: a544e658d2c4f854d8d66db701caf0cd, type: 3}
+  m_PrefabInstance: {fileID: 1859464067}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1888202170 stripped

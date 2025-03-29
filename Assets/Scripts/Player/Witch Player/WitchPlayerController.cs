@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 
 public class WitchPlayerController : MonoBehaviour
@@ -25,6 +27,7 @@ public class WitchPlayerController : MonoBehaviour
     [SerializeField] GameObject firebolt;
     [SerializeField] GameObject firePoint;
     [SerializeField] SceneHandler sceneHandler;
+    [SerializeField] Button pauseButton;
     
     //constant
     const string speedX = "SpeedX";
@@ -37,6 +40,7 @@ public class WitchPlayerController : MonoBehaviour
     Vector2 moveDirection = Vector2.zero;
     float lookAngle = 0;
     bool isAlive = true;
+    
 
     void Awake()
     {
@@ -57,7 +61,9 @@ public class WitchPlayerController : MonoBehaviour
     private void Move()
     {
         if (!isAlive)
-            return; 
+            return;
+        if (Time.timeScale == 0)
+            return;
         //position movement
         Vector3 movementForward = mainCamera.transform.forward * moveDirection.y;
         Vector3 movementRight = mainCamera.transform.right * moveDirection.x;
@@ -120,12 +126,18 @@ public class WitchPlayerController : MonoBehaviour
     
     private void OnFire()
     {
+        if (Time.timeScale == 0)
+            return;
         anim.SetTrigger(shoot);
         AudioManager.Instance.PlaySound(AudioManager.SoundClips.PlayerAttackSfx);
         FireBoltScript newFirebolt = Instantiate(firebolt, firePoint.transform.position, Quaternion.identity).GetComponent<FireBoltScript>();
         newFirebolt.SetDirection(PlayerModel.transform.forward, bulletSpeed);
         newFirebolt.hitAnEnemy.AddListener(DealDamage);
         newFirebolt.hitBoss.AddListener(DealDamageToBoss);
+    }
+    private void OnPause()
+    {
+        pauseButton.onClick.Invoke();
     }
 
     private void Death()
