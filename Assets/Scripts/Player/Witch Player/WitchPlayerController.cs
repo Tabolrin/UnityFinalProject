@@ -64,6 +64,9 @@ public class WitchPlayerController : MonoBehaviour
             return;
         if (Time.timeScale == 0)
             return;
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         //position movement
         Vector3 movementForward = mainCamera.transform.forward * moveDirection.y;
         Vector3 movementRight = mainCamera.transform.right * moveDirection.x;
@@ -138,6 +141,8 @@ public class WitchPlayerController : MonoBehaviour
     private void OnPause()
     {
         pauseButton.onClick.Invoke();
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     private void Death()
