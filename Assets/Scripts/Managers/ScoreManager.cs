@@ -54,7 +54,7 @@ public class ScoreManager : MonoBehaviour
             PlayerPrefs.SetInt("HighScore", currentScore);
             highScoreAchieved = true;
         }
-        
+        PlayerPrefs.SetInt("FinalScore", currentScore);
         PlayerPrefs.DeleteKey("Score");
         
         PlayerPrefs.Save();

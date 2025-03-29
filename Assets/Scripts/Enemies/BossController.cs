@@ -6,8 +6,8 @@ public class BossController : MonoBehaviour
 {
     [Header("Boss Stats")]
     public int maxHP = 30;
-    private int currentHP;
-    private int damage = 2;
+    private int _currentHP;
+    private readonly int _damage = 10;
 
     [Header("Movement Settings")]
     public NavMeshAgent agent;
@@ -29,7 +29,7 @@ public class BossController : MonoBehaviour
 
     void Start()
     {
-        currentHP = maxHP;
+        _currentHP = maxHP;
         
         if (agent == null)
             agent = GetComponent<NavMeshAgent>();
@@ -47,7 +47,7 @@ public class BossController : MonoBehaviour
 
     IEnumerator ShootingRoutine()
     {
-        while (currentHP > 0)
+        while (_currentHP > 0)
         {
             float waitTime = Random.Range(shootIntervalMin, shootIntervalMax);
             yield return new WaitForSeconds(waitTime);
@@ -88,9 +88,9 @@ public class BossController : MonoBehaviour
     public void TakeDamage(int amount)
     {
         AudioManager.Instance.PlaySound(AudioManager.SoundClips.EnemyHurtSfx);
-        currentHP -= amount;
+        _currentHP -= amount;
         
-        if (currentHP <= 0)
+        if (_currentHP <= 0)
         {
             Die();
         }
@@ -98,7 +98,7 @@ public class BossController : MonoBehaviour
     
     private void DealDamage(WitchPlayerController player)
     {
-        player.TakeDamage(damage);
+        player.TakeDamage(_damage);
         //Debug.Log($"Player should have taken {damage} damage");
     }
 
@@ -119,7 +119,7 @@ public class BossController : MonoBehaviour
             
             if (playerHealth != null)
             {
-                playerHealth.TakeDamage(damage);
+                playerHealth.TakeDamage(_damage);
             }
         }
     }

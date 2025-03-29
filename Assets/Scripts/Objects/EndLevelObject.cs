@@ -9,14 +9,20 @@ public class EndLevelObject : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        AudioManager.Instance.PlaySound(AudioManager.SoundClips.LevelWinSfx);
-        
-        if(SceneManager.GetActiveScene().buildIndex == 1 || SceneManager.GetActiveScene().buildIndex == 2)
-            saveLoadManager.SaveGame();
-        else if (SceneManager.GetActiveScene().buildIndex == 3)
-            saveLoadManager.DeleteSaveFile();
-        
         if (other.CompareTag("Player"))
+        {
+            AudioManager.Instance.PlaySound(AudioManager.SoundClips.LevelWinSfx);
+
+            if (SceneManager.GetActiveScene().buildIndex == 1 || SceneManager.GetActiveScene().buildIndex == 2)
+            {
+                saveLoadManager.SaveGame();
+            }
+            else if (SceneManager.GetActiveScene().buildIndex == 3)
+            {
+                saveLoadManager.DeleteSaveFile();
+            }
+            
             sceneHandler.Load(SceneToLoad);
+        }
     }
 }

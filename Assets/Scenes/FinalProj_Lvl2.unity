@@ -1988,7 +1988,7 @@ PrefabInstance:
       objectReference: {fileID: 1223612893}
     - target: {fileID: 4532172411503495232, guid: 10ee2112eb705984eb35ca5b40a6647d, type: 3}
       propertyPath: spawnCooldown
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4532172411503495232, guid: 10ee2112eb705984eb35ca5b40a6647d, type: 3}
       propertyPath: startingAngle
@@ -1996,7 +1996,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4532172411503495232, guid: 10ee2112eb705984eb35ca5b40a6647d, type: 3}
       propertyPath: maximumEnemiesToSpawn
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4532172411503495232, guid: 10ee2112eb705984eb35ca5b40a6647d, type: 3}
       propertyPath: distanceFromPlayerSpawning
@@ -7770,7 +7770,7 @@ PrefabInstance:
       objectReference: {fileID: 1223612893}
     - target: {fileID: 4532172411503495232, guid: 10ee2112eb705984eb35ca5b40a6647d, type: 3}
       propertyPath: spawnCooldown
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4532172411503495232, guid: 10ee2112eb705984eb35ca5b40a6647d, type: 3}
       propertyPath: startingAngle
@@ -7778,7 +7778,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4532172411503495232, guid: 10ee2112eb705984eb35ca5b40a6647d, type: 3}
       propertyPath: maximumEnemiesToSpawn
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4532172411503495232, guid: 10ee2112eb705984eb35ca5b40a6647d, type: 3}
       propertyPath: distanceFromPlayerSpawning

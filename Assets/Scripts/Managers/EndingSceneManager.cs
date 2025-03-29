@@ -17,9 +17,13 @@ public class EndingSceneManager : MonoBehaviour
         if (finalScoreText != null)
         {
             if (scoreManager.SaveHighScore())
-                finalScoreText.text = $"New HighScore! \n Final Score: {scoreManager.currentScore}";
+                finalScoreText.text = $"New HighScore! \n Final Score: {PlayerPrefs.GetInt("FinalScore")}";
             else 
-                finalScoreText.text = $"High Score: {PlayerPrefs.GetInt("HighScore")} \n Final Score: {scoreManager.currentScore}";
+                finalScoreText.text = $"High Score: {PlayerPrefs.GetInt("HighScore")} \n Final Score: {PlayerPrefs.GetInt("FinalScore")}";
+            
+            PlayerPrefs.DeleteKey("FinalScore");
+        
+            PlayerPrefs.Save();
         }
     }
 }

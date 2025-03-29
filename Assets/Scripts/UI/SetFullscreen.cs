@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SetFullscreen : MonoBehaviour
 {
-    private bool isFullscreen = false;
+    private bool isFullscreen = true;
     
     public void ToggleFullscreen()
     {
