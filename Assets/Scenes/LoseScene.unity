@@ -266,7 +266,7 @@ PrefabInstance:
     - target: {fileID: 490850873579942304, guid: 5ac4e3d2bbc06fa448d197a3e0197961, type: 3}
       propertyPath: text
       value: 
-      objectReference: {fileID: 32839913}
+      objectReference: {fileID: 0}
     - target: {fileID: 2940329040775068470, guid: 5ac4e3d2bbc06fa448d197a3e0197961, type: 3}
       propertyPath: m_Name
       value: ScoreManager

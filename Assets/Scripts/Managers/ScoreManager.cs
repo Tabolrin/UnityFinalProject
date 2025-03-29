@@ -15,19 +15,22 @@ public class ScoreManager : MonoBehaviour
         else
             currentScore = PlayerPrefs.GetInt("Score");
         
-        text.text = $"Score: {currentScore.ToString()}";
+        if (text != null)
+            text.text = $"Score: {currentScore}";
     }
 
     private void Update()
     {
-        text.text = $"Score: {currentScore}";
+        if (text != null)
+            text.text = $"Score: {currentScore}";
     }
 
     public void UpdateScoreText(int amount)
     {
         currentScore = PlayerPrefs.GetInt("Score");
         currentScore += amount;
-        text.text = $"Score: {currentScore}";
+        if (text != null)
+            text.text = $"Score: {currentScore}";
     }
 
     public void AddScore(int amount)
@@ -54,6 +57,7 @@ public class ScoreManager : MonoBehaviour
             PlayerPrefs.SetInt("HighScore", currentScore);
             highScoreAchieved = true;
         }
+        
         PlayerPrefs.SetInt("FinalScore", currentScore);
         PlayerPrefs.DeleteKey("Score");
         

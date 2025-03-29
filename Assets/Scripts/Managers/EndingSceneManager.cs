@@ -25,5 +25,9 @@ public class EndingSceneManager : MonoBehaviour
         
             PlayerPrefs.Save();
         }
+        else
+        {
+            Debug.Log("No Final Score");
+        }
     }
 }
