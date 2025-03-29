@@ -53,7 +53,7 @@ MonoBehaviour:
   bulletSpeed: 30
   fireboltDamage: 1
   knockbackPower: 6000
-  cameraSpeed: 0.5
+  cameraSpeed: 0.2
   animationDampenTime: 0.1
   rb: {fileID: 1656400206107516378}
   anim: {fileID: 5387801567641019374}
@@ -62,6 +62,8 @@ MonoBehaviour:
   mainCamera: {fileID: 1060826606553488562}
   firebolt: {fileID: 5215765541296327221, guid: 8ccf84909bb218b47a126dae08117354, type: 3}
   firePoint: {fileID: 7723617800311081738}
+  sceneHandler: {fileID: 0}
+  pauseButton: {fileID: 0}
 --- !u!114 &2099892664661561216
 MonoBehaviour:
   m_ObjectHideFlags: 0
