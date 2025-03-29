@@ -3111,6 +3111,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScoreUpOrb
       objectReference: {fileID: 0}
+    - target: {fileID: 7083886291198207674, guid: f0c6b800786e74e458030dd4b44eb1a1, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
