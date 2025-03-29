@@ -6,7 +6,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] public TMP_Text text;
     public int currentScore;
 
-    private void Awake()
+    private void Start()
     {
         if (!PlayerPrefs.HasKey("Score"))
             PlayerPrefs.SetInt("Score", 0);
@@ -23,19 +23,14 @@ public class ScoreManager : MonoBehaviour
             text.text = $"Score: {currentScore}";
     }
 
-    public void UpdateScoreText(int amount)
-    {
-        //currentScore = PlayerPrefs.GetInt("Score");
-        //currentScore += amount;
-        
-        if (text != null)
-            text.text = $"Score: {currentScore}";
-    }
-
     public void AddScore(int amount)
     {
+        Debug.Log($"Score: {currentScore}");
         currentScore += amount; 
         PlayerPrefs.SetInt("Score", currentScore + amount); 
+        
+        Debug.Log($"Score += {amount}");
+        Debug.Log($"Score: {currentScore + amount}");
     }
 
     public bool SaveHighScore()

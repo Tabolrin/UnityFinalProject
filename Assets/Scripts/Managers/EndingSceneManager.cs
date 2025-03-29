@@ -6,9 +6,18 @@ public class EndingSceneManager : MonoBehaviour
 {
     public ScoreManager scoreManager;
     public TMP_Text  finalScoreText;
+    public GameObject loadButton;
 
     private void Start()
     {
+        if (loadButton != null)
+        {
+            if (SaveLoadManager.HasActiveSave)
+                loadButton.SetActive(true);
+            else
+                loadButton.SetActive(false);
+        }
+        
         HighScore();
     }
 
