@@ -22,8 +22,9 @@ public class FireBoltScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //Debug.Log(other.name);
+
         EnemyController enemy = other.GetComponent<EnemyController>();
-        
         if(enemy)
             hitAnEnemy.Invoke(enemy);
         else

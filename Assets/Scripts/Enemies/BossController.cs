@@ -99,7 +99,7 @@ public class BossController : MonoBehaviour
     private void DealDamage(WitchPlayerController player)
     {
         player.TakeDamage(damage);
-        Debug.Log($"Player should have taken {damage} damage");
+        //Debug.Log($"Player should have taken {damage} damage");
     }
 
     private void Die()

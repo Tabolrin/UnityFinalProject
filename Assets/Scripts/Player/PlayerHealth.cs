@@ -40,7 +40,9 @@ public class PlayerHealth : MonoBehaviour
 
     private void PlayerDied()
     {
+        /*
         health = healthParameters.PlayerMaxHealth;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        */
     }
 }

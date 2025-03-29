@@ -7,6 +7,8 @@ public class FloatObject : MonoBehaviour
     public float moveDistance = 1f;
     public float moveDuration = 1f;
     public float waitDuration = 1f;
+    [Header("Refrence")]
+    [SerializeField] Collider col;
 
     private Vector3 originalPosition;
     private bool movingDown = true;
@@ -22,7 +24,7 @@ public class FloatObject : MonoBehaviour
         while (true)
         {
             Vector3 targetPosition;
-
+            Vector3 startMovePosition = transform.position;
             if (movingDown)
                 targetPosition = originalPosition + Vector3.down * moveDistance;
             else
@@ -32,14 +34,18 @@ public class FloatObject : MonoBehaviour
 
             while (elapsedTime < moveDuration)
             {
-                transform.position = Vector3.Lerp(transform.position, targetPosition, elapsedTime / moveDuration);
+                transform.position = Vector3.Lerp(startMovePosition, targetPosition, elapsedTime / moveDuration);
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }
 
             transform.position = targetPosition;
 
+            if (movingDown)
+                col.enabled = false;
             yield return new WaitForSeconds(waitDuration);
+            if (movingDown)
+                col.enabled = true;
 
             movingDown = !movingDown;
         }

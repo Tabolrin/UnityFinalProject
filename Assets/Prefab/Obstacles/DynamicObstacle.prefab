@@ -139,5 +139,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDistance: 2
-  moveDuration: 1
-  waitDuration: 1
+  moveDuration: 0.5
+  waitDuration: 2
+  col: {fileID: 6843454367747783084}

@@ -37,7 +37,7 @@ public class SaveLoadManager : MonoBehaviour
         {
             data.sceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         }
-        catch (Exception e)
+        catch
         {
             Console.WriteLine("outOfSceneRange");
         }

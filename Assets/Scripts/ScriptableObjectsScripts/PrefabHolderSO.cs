@@ -1,5 +1,3 @@
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 enum PrefubOptions { powerOrb, healthOrb, spikeTrap }

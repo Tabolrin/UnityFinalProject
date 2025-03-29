@@ -909,7 +909,13 @@ PlayerSettings:
   XboxOneOverrideIdentityName: 
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    Build: 0
+    Game Performance: 0
+    Legacy Analytics: 0
+    Purchasing: 0
+    UDP: 0
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -931,11 +937,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 5790b950-d971-47c9-84f9-b3305796497c
+  cloudProjectId: 7bafc913-3642-492a-b320-1f1b9896df81
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: HW_1
-  organizationId: unity_0a5e5dc3a596a93b9f7a
+  projectName: FinalProjectPeerThaiEden
+  organizationId: yaaaaarn-jam
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

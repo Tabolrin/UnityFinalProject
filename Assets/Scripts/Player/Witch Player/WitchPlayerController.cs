@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 public class WitchPlayerController : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] bool alive = true;
     [SerializeField] float speed;
     [SerializeField] float bulletSpeed;
     [SerializeField] int fireboltDamage;
@@ -27,15 +26,17 @@ public class WitchPlayerController : MonoBehaviour
     [SerializeField] GameObject firePoint;
     [SerializeField] SceneHandler sceneHandler;
     
-    //constant strings
+    //constant
     const string speedX = "SpeedX";
     const string speedY = "SpeedY";
     const string shoot = "Shoot";
     const string enemyTag = "Enemy";
+    const float deathAnimationTime = 1;
 
     //Fields
     Vector2 moveDirection = Vector2.zero;
     float lookAngle = 0;
+    bool isAlive = true;
 
     void Awake()
     {
@@ -55,13 +56,15 @@ public class WitchPlayerController : MonoBehaviour
 
     private void Move()
     {
+        if (!isAlive)
+            return; 
         //position movement
         Vector3 movementForward = mainCamera.transform.forward * moveDirection.y;
         Vector3 movementRight = mainCamera.transform.right * moveDirection.x;
         Vector3 directionVector = movementForward + movementRight;
         directionVector.y = 0;
         Vector3 movement = directionVector.normalized * speed;
-        rb.linearVelocity = new Vector3(movement.x, 0, movement.z);
+        rb.linearVelocity = new Vector3(movement.x, rb.linearVelocity.y, movement.z);
 
         //rotation
         //Vector3 look = new Vector3(lookDirection.x, 0, lookDirection.y);
@@ -132,10 +135,12 @@ public class WitchPlayerController : MonoBehaviour
     
     private IEnumerator DeathSequence()
     {
-        alive = false;
+        isAlive = false;
         anim.SetBool("IsAlive", false);
+        anim.SetLayerWeight(1, 0);
         
-        yield return new WaitForSeconds(1f);
+        
+        yield return new WaitForSeconds(deathAnimationTime);
         
         sceneHandler.Load("LoseScene");
     }

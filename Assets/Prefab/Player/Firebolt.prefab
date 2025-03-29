@@ -5013,7 +5013,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.65
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &5647387197952129618
 Rigidbody:
@@ -5055,7 +5055,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 5647387197952129618}
-  hitATarget:
+  hitAnEnemy:
+    m_PersistentCalls:
+      m_Calls: []
+  hitPlayer:
+    m_PersistentCalls:
+      m_Calls: []
+  hitBoss:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &6586945322926193182
