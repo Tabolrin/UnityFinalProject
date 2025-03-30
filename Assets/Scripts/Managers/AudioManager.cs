@@ -20,12 +20,10 @@ public class AudioManager : MonoBehaviour
         LevelWinSfx
     };
 
-    [SerializeField] private GameObject Music;
-    [SerializeField] private GameObject SFX;
-    [SerializeField] AudioClips AudioClipsContainer;
+    public AudioSource MusicAudioSource;
+    public AudioSource SFXAudioSource;
+    public AudioClips AudioClipsContainer;
     
-    private AudioSource _musicAudioSource;
-    private AudioSource _sfxAudioSource;
     public static AudioManager Instance;
 
     private void Awake()
@@ -34,19 +32,8 @@ public class AudioManager : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
-
-        _musicAudioSource = Music.GetComponent<AudioSource>();
-        _sfxAudioSource = SFX.GetComponent<AudioSource>();
         
         DontDestroyOnLoad(this.gameObject);
-    }
-
-    public void StopBackgroundMusic(bool ShouldPlayMusic)
-    {
-        if (ShouldPlayMusic)
-            _musicAudioSource.Play();
-        else
-            _musicAudioSource.Stop();
     }
 
     public void PlaySound(SoundClips actionSound)
@@ -57,27 +44,30 @@ public class AudioManager : MonoBehaviour
             //---------Main Menu & Maze Levels--------
             case SoundClips.MainMenuAndMazeBgMusic:
             {
-                _musicAudioSource.PlayOneShot(AudioClipsContainer.MainMenuAndMazeBgMusic);
+                MusicAudioSource.clip = AudioClipsContainer.MainMenuAndMazeBgMusic;
+                MusicAudioSource.Play();
                 break;
             }
             
             //---------End Screens--------
             case SoundClips.LoseBgMusic:
             {
-                _musicAudioSource.PlayOneShot(AudioClipsContainer.LoseBgMusic);
-                break;
+                MusicAudioSource.clip = AudioClipsContainer.LoseBgMusic;
+                MusicAudioSource.Play();                break;
             }
 
             case SoundClips.WinBgMusic:
             {
-                _musicAudioSource.PlayOneShot(AudioClipsContainer.WinBgMusic);
+                MusicAudioSource.clip = AudioClipsContainer.WinBgMusic;
+                MusicAudioSource.Play();
                 break;
             }
             
             //---------Boss Level--------
             case SoundClips.BossRoomBgMusic:
             {
-                _musicAudioSource.PlayOneShot(AudioClipsContainer.BossRoomBgMusic);
+                MusicAudioSource.clip = AudioClipsContainer.BossRoomBgMusic;
+                MusicAudioSource.Play();               
                 break;
             }
             
@@ -85,52 +75,60 @@ public class AudioManager : MonoBehaviour
             //---------PowerUps--------
             case SoundClips.PowerUpCollectedSfx:
             {
-                _sfxAudioSource.PlayOneShot(AudioClipsContainer.PowerUpCollectedSfx);
+                SFXAudioSource.clip = AudioClipsContainer.PowerUpCollectedSfx;
+                SFXAudioSource.Play();  
                 break;
             }
             
             //---------Player Sfx--------
             case SoundClips.PlayerAttackSfx:
             {
-                _sfxAudioSource.PlayOneShot(AudioClipsContainer.PlayerAndBossAttackSfx);
+                SFXAudioSource.clip = AudioClipsContainer.PlayerAndBossAttackSfx;
+                SFXAudioSource.Play();  
                 break;
             }
             
             case SoundClips.PlayerDeathSfx:
             {
-                _sfxAudioSource.PlayOneShot(AudioClipsContainer.PlayerDeathSfx);
+                SFXAudioSource.clip = AudioClipsContainer.PlayerDeathSfx;
+                SFXAudioSource.Play();  
                 break;
             }
             
             case SoundClips.PlayerHurtSfx:
             {
-                _sfxAudioSource.PlayOneShot(AudioClipsContainer.PlayerHurtSfx);
+                SFXAudioSource.clip = AudioClipsContainer.PlayerHurtSfx;
+                SFXAudioSource.Play();  
                 break;
             }
             
             //---------Enemy & Boss Sfx--------
             case SoundClips.EnemyAttackSfx:
             {
-                _sfxAudioSource.PlayOneShot(AudioClipsContainer.EnemyAttackSfx);
+                SFXAudioSource.clip = AudioClipsContainer.EnemyAttackSfx;
+                SFXAudioSource.Play();  
                 break;
             }
             
             case SoundClips.EnemyHurtSfx:
             {
-                _sfxAudioSource.PlayOneShot(AudioClipsContainer.EnemyHurtSfx);
+                SFXAudioSource.clip = AudioClipsContainer.EnemyHurtSfx;
+                SFXAudioSource.Play();  
                 break;
             }
             
             case SoundClips.BossAttackSfx:
             {
-                _sfxAudioSource.PlayOneShot(AudioClipsContainer.PlayerAndBossAttackSfx);
+                SFXAudioSource.clip = AudioClipsContainer.PlayerAndBossAttackSfx;
+                SFXAudioSource.Play();  
                 break;
             }
             
             //---------Level End Reached--------
             case SoundClips.LevelWinSfx:
             {
-                _sfxAudioSource.PlayOneShot(AudioClipsContainer.LevelWinSfx);
+                SFXAudioSource.clip = AudioClipsContainer.LevelWinSfx;
+                SFXAudioSource.Play();  
                 break;
             }
         }

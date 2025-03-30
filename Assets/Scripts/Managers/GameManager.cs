@@ -41,7 +41,8 @@ public class GameManager : MonoBehaviour
             case Scenes.Level1:
             case Scenes.Level2:
             {
-                AudioManager.Instance.PlaySound(AudioManager.SoundClips.MainMenuAndMazeBgMusic);
+                if ( AudioManager.Instance.MusicAudioSource.clip != AudioManager.Instance.AudioClipsContainer.MainMenuAndMazeBgMusic)
+                    AudioManager.Instance.PlaySound(AudioManager.SoundClips.MainMenuAndMazeBgMusic);
                 break;
             }
 

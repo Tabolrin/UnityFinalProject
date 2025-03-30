@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!82 &74630931 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 646374365167503801, guid: 3965a6c57a12bfe438e8ec848ebd613a, type: 3}
+  m_PrefabInstance: {fileID: 7323639704549120276}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &291409375
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,6 +773,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 836500279}
   m_CullTransparentMesh: 1
+--- !u!82 &843267801 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3094180416352240166, guid: 3965a6c57a12bfe438e8ec848ebd613a, type: 3}
+  m_PrefabInstance: {fileID: 7323639704549120276}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1369201264
 GameObject:
   m_ObjectHideFlags: 0
@@ -1924,6 +1934,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4187478336143844214, guid: 3965a6c57a12bfe438e8ec848ebd613a, type: 3}
+      propertyPath: SFXAudioSource
+      value: 
+      objectReference: {fileID: 74630931}
+    - target: {fileID: 4187478336143844214, guid: 3965a6c57a12bfe438e8ec848ebd613a, type: 3}
+      propertyPath: _sfxAudioSource
+      value: 
+      objectReference: {fileID: 74630931}
+    - target: {fileID: 4187478336143844214, guid: 3965a6c57a12bfe438e8ec848ebd613a, type: 3}
+      propertyPath: MusicAudioSource
+      value: 
+      objectReference: {fileID: 843267801}
+    - target: {fileID: 4187478336143844214, guid: 3965a6c57a12bfe438e8ec848ebd613a, type: 3}
+      propertyPath: _musicAudioSource
+      value: 
+      objectReference: {fileID: 843267801}
     - target: {fileID: 8933470909585438311, guid: 3965a6c57a12bfe438e8ec848ebd613a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 931.31836
