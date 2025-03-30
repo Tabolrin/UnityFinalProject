@@ -29,7 +29,7 @@ public class EnemyController : MonoBehaviour
     const string shootTrigger = "Shoot";
     const string runningAnimation = "Running_A";
 
-    public int ContactDamage { get; private set; } = 10;
+    public int ContactDamage { get; private set; } = 5;
     int hp = 2;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

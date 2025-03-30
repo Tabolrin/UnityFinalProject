@@ -8,7 +8,7 @@ public class EndingSceneManager : MonoBehaviour
     public TMP_Text  finalScoreText;
     public GameObject loadButton;
 
-    private void Start()
+    private void Awake()
     {
         if (loadButton != null)
         {
@@ -17,7 +17,10 @@ public class EndingSceneManager : MonoBehaviour
             else
                 loadButton.SetActive(false);
         }
-        
+    }
+
+    private void Start()
+    {
         HighScore();
     }
 

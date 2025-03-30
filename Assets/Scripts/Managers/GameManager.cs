@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -26,11 +27,13 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         
         DontDestroyOnLoad(this.gameObject);
+
+        SceneManager.sceneLoaded += UpdateMusic;
     }
 
-    private void Start()
+    private void UpdateMusic(Scene scene, LoadSceneMode mode)
     {
-        currentScene = (Scenes)SceneManager.GetActiveScene().buildIndex;
+        currentScene = (Scenes)scene.buildIndex;
 
         switch (currentScene)
         {
@@ -60,5 +63,12 @@ public class GameManager : MonoBehaviour
                 break;
             }
         }
+    }
+
+   
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= UpdateMusic;
     }
 }

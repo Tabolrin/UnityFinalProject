@@ -4,8 +4,7 @@ public class OpeningSceneManager : MonoBehaviour
 {
     public GameObject loadButton;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         PlayerPrefs.SetInt("Score", 0);
         
